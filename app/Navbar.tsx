@@ -6,6 +6,12 @@ import DesktopNav from "./DesktopNav";
 
 const tools: { label: string; description: string; href: string }[] = [
   {
+    label: "Base Converter",
+    description:
+      "Convert numbers between different bases such as binary and decimal.",
+    href: "/number/convert",
+  },
+  {
     label: "Color Picker",
     description: "Select and customize colors and convert between formats.",
     href: "/color/picker",
@@ -20,12 +26,6 @@ const tools: { label: string; description: string; href: string }[] = [
     description:
       "Counts the number of words, characters, and sentences in text.",
     href: "/text/count",
-  },
-  {
-    label: "Base Converter",
-    description:
-      "Convert numbers between different bases such as binary and decimal.",
-    href: "/number/convert",
   },
 ];
 
