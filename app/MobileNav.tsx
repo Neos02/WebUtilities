@@ -21,7 +21,7 @@ import NavSubMenu from "./NavSubMenu";
 
 const MobileNav = ({ tools, links }: NavbarProps) => {
   return (
-    <NavigationMenu>
+    <NavigationMenu className="absolute right-0 py-2">
       <Drawer direction="right">
         <DrawerTrigger>
           <IoMenu size={28} />
