@@ -6,13 +6,13 @@ const NumberConvertLoading = () => {
     <Card className="h-full">
       <CardHeader>
         <CardTitle>
-          <Skeleton className="w-44 h-6" />
+          <Skeleton className="w-36 h-6" />
         </CardTitle>
         <div>
           <Skeleton className="w-72 h-5" />
         </div>
       </CardHeader>
-      <CardContent className="flex flex-col items-start gap-5">
+      <CardContent className="flex flex-col items-start gap-4">
         <div className="flex flex-col xs:flex-row gap-4">
           <div className="flex items-center gap-4">
             <Skeleton className="w-24 h-10" />

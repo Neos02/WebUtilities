@@ -16,7 +16,7 @@ const NumberConvertPage = () => {
           Convert numbers from one base to another
         </CardDescription>
       </CardHeader>
-      <CardContent className="flex flex-col items-start gap-5">
+      <CardContent className="flex flex-col items-start gap-4">
         <Converter />
       </CardContent>
     </Card>

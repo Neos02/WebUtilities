@@ -1,5 +1,3 @@
-"use client";
-
 import {
   Card,
   CardContent,
@@ -7,9 +5,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import delay from "delay";
 import ColorPicker from "./ColorPicker";
 
-const ColorPickerPage = () => {
+const ColorPickerPage = async () => {
+  await delay(2000);
+
   return (
     <Card className="h-full">
       <CardHeader>
@@ -18,7 +19,7 @@ const ColorPickerPage = () => {
           Select colors and convert between formats
         </CardDescription>
       </CardHeader>
-      <CardContent className="flex flex-col items-start gap-5">
+      <CardContent className="flex flex-col items-start gap-4">
         <ColorPicker />
       </CardContent>
     </Card>
