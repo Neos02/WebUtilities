@@ -9,12 +9,13 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Dispatch, SetStateAction } from "react";
-import { ConverterProps } from "./Converter";
 
-interface Props extends ConverterProps {
+interface Props {
   min: number;
   max: number;
+  from: string;
   setFrom: Dispatch<SetStateAction<string>>;
+  to: string;
   setTo: Dispatch<SetStateAction<string>>;
   handleSwap: () => void;
   handleReset: () => void;

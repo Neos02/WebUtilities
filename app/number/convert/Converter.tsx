@@ -4,11 +4,6 @@ import { useEffect, useState } from "react";
 import ConverterControls from "./ConverterControls";
 import ConverterFields from "./ConverterFields";
 
-export interface ConverterProps {
-  from: string;
-  to: string;
-}
-
 const defaultFrom = "10";
 const defaultTo = "16";
 
@@ -58,13 +53,7 @@ const Converter = () => {
         handleSwap={handleSwap}
         handleReset={reset}
       />
-      <ConverterFields
-        input={input}
-        setInput={setInput}
-        result={result}
-        from={fromBase}
-        to={toBase}
-      />
+      <ConverterFields input={input} setInput={setInput} result={result} />
     </>
   );
 };
