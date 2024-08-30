@@ -1,11 +1,7 @@
-"use client";
-
-import { Button } from "@/components/ui/button";
 import CopyButton from "@/components/ui/CopyButton";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Dispatch, SetStateAction, useState } from "react";
-import { FiCheck, FiClipboard } from "react-icons/fi";
+import { Dispatch, SetStateAction } from "react";
 
 interface Props {
   input: string;

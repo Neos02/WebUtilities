@@ -1,6 +1,6 @@
 "use client";
 
-import { Input } from "@/components/ui/input";
+import { Input, InputWithCopy } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useEffect, useState } from "react";
 import {
@@ -137,7 +137,7 @@ const ColorPicker = () => {
           (colorModel) => (
             <Label key={colorModel} className="flex flex-col gap-1">
               <span>{colorModel.toUpperCase()}</span>
-              <Input
+              <InputWithCopy
                 type="text"
                 value={fields[colorModel]?.value}
                 onFocus={() => handleInputFocus(colorModel)}

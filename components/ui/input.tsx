@@ -1,6 +1,7 @@
-import * as React from "react"
+import * as React from "react";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
+import CopyButton from "./CopyButton";
 
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {}
@@ -17,9 +18,31 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         ref={ref}
         {...props}
       />
-    )
+    );
   }
-)
-Input.displayName = "Input"
+);
+Input.displayName = "Input";
 
-export { Input }
+const InputWithCopy = React.forwardRef<HTMLInputElement, InputProps>(
+  ({ className, type, value, onChange = () => {}, ...props }, ref) => {
+    const [inputValue, setInputValue] = React.useState(value ?? "");
+
+    return (
+      <div className={cn("relative", className)}>
+        <Input
+          type={type}
+          ref={ref}
+          value={value}
+          onChange={(e) => {
+            setInputValue(e.target.value);
+            onChange(e);
+          }}
+          {...props}
+        />
+        <CopyButton copyValue={inputValue.toString()} />
+      </div>
+    );
+  }
+);
+
+export { Input, InputWithCopy };
