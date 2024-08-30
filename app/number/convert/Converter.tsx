@@ -1,42 +1,59 @@
 "use client";
 
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import ConverterControls from "./ConverterControls";
+import ConverterFields from "./ConverterFields";
+
+export interface ConverterProps {
+  from: string;
+  to: string;
+}
 
 const Converter = () => {
-  const searchParams = useSearchParams();
   const [input, setInput] = useState("");
   const [result, setResult] = useState("");
+  const [fromBase, setFromBase] = useState("10");
+  const [toBase, setToBase] = useState("16");
 
   const convert = () => {
-    if (!searchParams.get("from") || !searchParams.get("to")) return;
-
-    const from = parseInt(searchParams.get("from")!);
-    const to = parseInt(searchParams.get("to")!);
-
-    const converted = parseInt(input, from).toString(to);
+    const converted = parseInt(input, parseInt(fromBase)).toString(
+      parseInt(toBase)
+    );
 
     setResult(converted && converted != NaN.toString() ? converted : "");
   };
 
+  const handleSwap = () => {
+    const tempBase = fromBase;
+    const tempInput = input;
+
+    setFromBase(toBase);
+    setToBase(tempBase);
+    setInput(result);
+    setResult(tempInput);
+  };
+
   useEffect(() => {
     convert();
-  }, [input, searchParams]);
+  }, [input, fromBase, toBase]);
 
   return (
     <>
-      <Input
-        type="text"
-        placeholder="Input"
-        onChange={(e) => setInput(e.target.value)}
+      <ConverterControls
+        min={2}
+        max={36}
+        from={fromBase}
+        setFrom={setFromBase}
+        to={toBase}
+        setTo={setToBase}
+        handleSwap={handleSwap}
       />
-      <Textarea
-        placeholder="Result"
-        disabled
-        className="!opacity-100 !cursor-text resize-none"
-        value={result}
+      <ConverterFields
+        input={input}
+        setInput={setInput}
+        result={result}
+        from={fromBase}
+        to={toBase}
       />
     </>
   );
