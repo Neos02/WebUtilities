@@ -20,10 +20,10 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          `min-h-screen bg-background antialiased ${inter.className}`
+          `min-h-screen h-screen bg-background antialiased ${inter.className}`
         )}
       >
-        <div className="relative w-11/12 md:w-4/5 mx-auto">
+        <div className="relative grid grid-rows-[max-content_1fr] w-11/12 h-full md:w-4/5 max-w-screen-lg mx-auto pb-14">
           <Navbar />
           <main>{children}</main>
         </div>
