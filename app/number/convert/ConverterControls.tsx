@@ -33,38 +33,43 @@ const ConverterControls = ({
   const bases = new Array(max - min + 1).fill(0).map((_, i) => i + min);
 
   return (
-    <div className="inline-flex justify-between items-center gap-4">
-      <Select onValueChange={(value) => setFrom(value)} value={from}>
-        <SelectTrigger className="w-32">
-          <SelectValue placeholder="Base" />
-        </SelectTrigger>
-        <SelectContent>
-          {bases.map((base) => (
-            <SelectItem key={base} value={`${base}`}>
-              Base {base}
-            </SelectItem>
-          ))}
-        </SelectContent>
-      </Select>
-      <span>To</span>
-      <Select onValueChange={(value) => setTo(value)} value={to}>
-        <SelectTrigger className="w-32">
-          <SelectValue placeholder="Base" />
-        </SelectTrigger>
-        <SelectContent>
-          {bases.map((base) => (
-            <SelectItem key={base} value={`${base}`}>
-              Base {base}
-            </SelectItem>
-          ))}
-        </SelectContent>
-      </Select>
-      <Button variant="secondary" onClick={handleSwap}>
-        Swap
-      </Button>
-      <Button variant="secondary" onClick={handleReset}>
-        Reset
-      </Button>
+    <div className="flex flex-col xs:flex-row gap-4">
+      <div className="flex justify-between items-center gap-4">
+        <Select onValueChange={(value) => setFrom(value)} value={from}>
+          <SelectTrigger className="w-24">
+            <SelectValue placeholder="Base" />
+          </SelectTrigger>
+          <SelectContent>
+            {bases.map((base) => (
+              <SelectItem key={base} value={`${base}`}>
+                Base {base}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+        <span>To</span>
+        <Select onValueChange={(value) => setTo(value)} value={to}>
+          <SelectTrigger className="w-24">
+            <SelectValue placeholder="Base" />
+          </SelectTrigger>
+          <SelectContent>
+            {bases.map((base) => (
+              <SelectItem key={base} value={`${base}`}>
+                Base {base}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      </div>
+
+      <div className="flex gap-4">
+        <Button variant="secondary" onClick={handleSwap}>
+          Swap
+        </Button>
+        <Button variant="secondary" onClick={handleReset}>
+          Reset
+        </Button>
+      </div>
     </div>
   );
 };
