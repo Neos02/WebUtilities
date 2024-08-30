@@ -127,7 +127,7 @@ const ColorPicker = () => {
         </div>
       </div>
 
-      <div className="flex flex-col gap-4 md:w-44 h-96">
+      <div className="flex flex-col flex-1 gap-4 h-96">
         <div
           className="h-[162px] rounded-lg border"
           style={{ backgroundColor: color.hex }}
