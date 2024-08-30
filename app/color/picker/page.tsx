@@ -5,12 +5,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import delay from "delay";
 import ColorPicker from "./ColorPicker";
 
-const ColorPickerPage = async () => {
-  await delay(2000);
-
+const ColorPickerPage = () => {
   return (
     <Card className="h-full">
       <CardHeader>
