@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Drawer,
   DrawerContent,
@@ -14,16 +16,28 @@ import {
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { LegacyRef, useEffect, useRef, useState } from "react";
 import { IoMenu } from "react-icons/io5";
 import { PiToolboxFill } from "react-icons/pi";
 import { NavbarProps } from "./Navbar";
 import NavSubMenu from "./NavSubMenu";
 
 const MobileNav = ({ tools, links, className }: NavbarProps) => {
+  const pathname = usePathname();
+  const triggerRef: LegacyRef<HTMLButtonElement> = useRef(null);
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      triggerRef?.current?.click();
+    }
+  }, [pathname]);
+
   return (
     <NavigationMenu className={`ml-auto py-2 ${className}`}>
-      <Drawer direction="right">
-        <DrawerTrigger>
+      <Drawer direction="right" onOpenChange={(open) => setIsOpen(open)}>
+        <DrawerTrigger ref={triggerRef}>
           <IoMenu size={40} />
         </DrawerTrigger>
         <DrawerContent>
