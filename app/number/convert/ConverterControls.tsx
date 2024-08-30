@@ -17,6 +17,7 @@ interface Props extends ConverterProps {
   setFrom: Dispatch<SetStateAction<string>>;
   setTo: Dispatch<SetStateAction<string>>;
   handleSwap: () => void;
+  handleReset: () => void;
 }
 
 const ConverterControls = ({
@@ -27,6 +28,7 @@ const ConverterControls = ({
   to,
   setTo,
   handleSwap,
+  handleReset,
 }: Props) => {
   const bases = new Array(max - min + 1).fill(0).map((_, i) => i + min);
 
@@ -60,7 +62,9 @@ const ConverterControls = ({
       <Button variant="secondary" onClick={handleSwap}>
         Swap
       </Button>
-      <Button variant="secondary">Reset</Button>
+      <Button variant="secondary" onClick={handleReset}>
+        Reset
+      </Button>
     </div>
   );
 };

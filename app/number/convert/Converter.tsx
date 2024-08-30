@@ -9,11 +9,14 @@ export interface ConverterProps {
   to: string;
 }
 
+const defaultFrom = "10";
+const defaultTo = "16";
+
 const Converter = () => {
   const [input, setInput] = useState("");
   const [result, setResult] = useState("");
-  const [fromBase, setFromBase] = useState("10");
-  const [toBase, setToBase] = useState("16");
+  const [fromBase, setFromBase] = useState(defaultFrom);
+  const [toBase, setToBase] = useState(defaultTo);
 
   const convert = () => {
     const converted = parseInt(input, parseInt(fromBase)).toString(
@@ -33,6 +36,12 @@ const Converter = () => {
     setResult(tempInput);
   };
 
+  const reset = () => {
+    setInput("");
+    setFromBase(defaultFrom);
+    setToBase(defaultTo);
+  };
+
   useEffect(() => {
     convert();
   }, [input, fromBase, toBase]);
@@ -47,6 +56,7 @@ const Converter = () => {
         to={toBase}
         setTo={setToBase}
         handleSwap={handleSwap}
+        handleReset={reset}
       />
       <ConverterFields
         input={input}
