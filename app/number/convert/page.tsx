@@ -8,22 +8,26 @@ import {
 import ConverterControls from "./ConverterControls";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import Converter from "./Converter";
 
-const NumberConvertPage = () => {
+interface Props {
+  searchParams: { from: string; to: string };
+}
+
+const NumberConvertPage = ({ searchParams }: Props) => {
   return (
     <Card className="h-full">
       <CardHeader>
         <CardTitle>Base Converter</CardTitle>
-        <CardDescription>Base 2 to Base 10</CardDescription>
+        <CardDescription>
+          {searchParams.to && searchParams.from
+            ? `Base ${searchParams.from} to Base ${searchParams.to}`
+            : "Select Two Bases"}
+        </CardDescription>
       </CardHeader>
       <CardContent className="flex flex-col items-start gap-5">
         <ConverterControls min={2} max={36} />
-        <Input type="number" placeholder="Input" />
-        <Textarea
-          placeholder="Result"
-          disabled
-          className="!opacity-100 !cursor-text resize-none"
-        />
+        <Converter />
       </CardContent>
     </Card>
   );
