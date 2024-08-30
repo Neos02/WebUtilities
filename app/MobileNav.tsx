@@ -19,9 +19,9 @@ import { PiToolboxFill } from "react-icons/pi";
 import { NavbarProps } from "./Navbar";
 import NavSubMenu from "./NavSubMenu";
 
-const MobileNav = ({ tools, links }: NavbarProps) => {
+const MobileNav = ({ tools, links, className }: NavbarProps) => {
   return (
-    <NavigationMenu className="ml-auto py-2">
+    <NavigationMenu className={`ml-auto py-2 ${className}`}>
       <Drawer direction="right">
         <DrawerTrigger>
           <IoMenu size={40} />

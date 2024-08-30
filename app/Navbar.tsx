@@ -1,6 +1,3 @@
-"use client";
-
-import { useMediaQuery } from "@/hooks/use-media-query";
 import MobileNav from "./MobileNav";
 import DesktopNav from "./DesktopNav";
 
@@ -37,15 +34,15 @@ const links: { label: string; href: string }[] = [
 export interface NavbarProps {
   tools: typeof tools;
   links: typeof links;
+  className?: string;
 }
 
 const Navbar = () => {
-  const isDesktop = useMediaQuery("(min-width: 768px)");
-
-  return isDesktop ? (
-    <DesktopNav tools={tools} links={links} />
-  ) : (
-    <MobileNav tools={tools} links={links} />
+  return (
+    <>
+      <DesktopNav className="hidden md:block" tools={tools} links={links} />
+      <MobileNav className="md:hidden" tools={tools} links={links} />
+    </>
   );
 };
 
