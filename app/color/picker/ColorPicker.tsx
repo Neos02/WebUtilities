@@ -1,6 +1,7 @@
 "use client";
 
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { useEffect, useState } from "react";
 import {
   ColorService,
@@ -11,7 +12,6 @@ import {
 } from "react-color-palette";
 import "react-color-palette/css";
 import "./ColorPicker.css";
-import { Label } from "@/components/ui/label";
 
 const float = (value: number, decimalPlaces: number) => {
   return Math.round(value * 10 ** decimalPlaces) / 10 ** decimalPlaces;
