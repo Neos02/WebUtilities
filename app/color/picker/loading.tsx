@@ -17,8 +17,8 @@ const loading = () => {
       <CardContent className="flex flex-col items-start gap-4">
         <div className="flex flex-col md:flex-row gap-4 w-full">
           <div className="flex flex-col gap-4">
-            <Skeleton className="w-96 h-96" />
-            <Skeleton className="w-96 h-8" />
+            <Skeleton className="w-full md:w-96 h-96" />
+            <Skeleton className="w-full md:w-96 h-8" />
           </div>
 
           <div className="flex flex-col flex-1 gap-4 h-96">
