@@ -84,32 +84,34 @@ const RandomNumberGenerator = () => {
 
   return (
     <>
-      <div className="flex gap-4">
-        <div className="flex justify-between items-center gap-4">
-          <Input
-            type="number"
-            placeholder="Minimum"
-            min={Number.MIN_SAFE_INTEGER}
-            max={max}
-            className="w-44"
-            value={min}
-            onChange={(e) => setMin(e.target.value)}
-          />
-          <span>To</span>
-          <Input
-            type="number"
-            placeholder="Maximum"
-            min={min}
-            max={Number.MAX_SAFE_INTEGER - 1}
-            className="w-44"
-            value={max}
-            onChange={(e) => setMax(e.target.value)}
-          />
+      <div className="flex gap-4 w-full">
+        <div className="flex flex-col md:flex-row gap-4 w-full">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <Input
+              type="number"
+              placeholder="Minimum"
+              min={Number.MIN_SAFE_INTEGER}
+              max={max}
+              className="md:w-44"
+              value={min}
+              onChange={(e) => setMin(e.target.value)}
+            />
+            <span className="hidden md:block">To</span>
+            <Input
+              type="number"
+              placeholder="Maximum"
+              min={min}
+              max={Number.MAX_SAFE_INTEGER - 1}
+              className="md:w-44"
+              value={max}
+              onChange={(e) => setMax(e.target.value)}
+            />
+          </div>
           <Select
             value={type}
             onValueChange={(value: NumberType) => setType(value)}
           >
-            <SelectTrigger className="w-32">
+            <SelectTrigger className="md:w-32">
               <SelectValue placeholder="Type" />
             </SelectTrigger>
             <SelectContent>
@@ -123,7 +125,7 @@ const RandomNumberGenerator = () => {
         </div>
       </div>
       <div className="relative w-full">
-        <h1 className="w-full p-2 font-bold rounded-lg border text-[2.5rem]">
+        <h1 className="w-full p-2 font-bold rounded-lg border text-[2.5rem] overflow-x-scroll">
           {random}
         </h1>
         <CopyButton copyValue={random} />
