@@ -34,14 +34,13 @@ const links: { label: string; href: string }[] = [
 export interface NavbarProps {
   tools: typeof tools;
   links: typeof links;
-  className?: string;
 }
 
 const Navbar = () => {
   return (
     <>
-      <DesktopNav className="hidden md:block" tools={tools} links={links} />
-      <MobileNav className="md:hidden" tools={tools} links={links} />
+      <DesktopNav tools={tools} links={links} />
+      <MobileNav tools={tools} links={links} />
     </>
   );
 };

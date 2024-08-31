@@ -11,10 +11,10 @@ import Link from "next/link";
 import { PiToolboxFill } from "react-icons/pi";
 import { NavbarProps } from "./Navbar";
 
-const DesktopNav = ({ tools, links, className }: NavbarProps) => {
+const DesktopNav = ({ tools, links }: NavbarProps) => {
   return (
     <NavigationMenu
-      className={`grid grid-cols-1 max-w-full w-full py-2 ${className}`}
+      className={`hidden md:grid grid-cols-1 max-w-full w-full py-2`}
     >
       <NavigationMenuList className="w-full flex justify-between">
         <NavigationMenuItem>
