@@ -6,8 +6,10 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import RandomNumberGenerator from "./RandomNumberGenerator";
+import delay from "delay";
 
-const NumberRandomPage = () => {
+const NumberRandomPage = async () => {
+  await delay(2000);
   return (
     <Card className="h-full">
       <CardHeader>
