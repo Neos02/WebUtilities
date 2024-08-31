@@ -33,13 +33,18 @@ const WordCounter = () => {
         ))}
         <Separator />
         <h1 className="font-bold">Top Words</h1>
-        {text &&
+        {text ? (
           Object.entries(mostCommonwords(text)).map(([word, count]) => (
             <Badge key={word} className="flex justify-between px-2 py-1">
               <span>{word}</span>
               <span>{count}</span>
             </Badge>
-          ))}
+          ))
+        ) : (
+          <p className="pt-2 text-center text-sm">
+            Start typing to get started
+          </p>
+        )}
       </div>
     </div>
   );
