@@ -24,7 +24,23 @@ const RandomNumberGenerator = () => {
   const [type, setType] = useState(NumberType.INTEGER);
 
   const processNumbers = () => {
-    if (type === NumberType.INTEGER && parseInt(min) < parseInt(max) + 1) {
+    const minInt = parseInt(min);
+    const maxInt = parseInt(max);
+
+    setMin(
+      Math.min(
+        Math.max(minInt, Number.MIN_SAFE_INTEGER),
+        Number.MAX_SAFE_INTEGER
+      ).toString()
+    );
+    setMax(
+      Math.min(
+        Math.max(maxInt, Number.MIN_SAFE_INTEGER),
+        Number.MAX_SAFE_INTEGER
+      ).toString()
+    );
+
+    if (type === NumberType.INTEGER && minInt < maxInt + 1) {
       return;
     }
 
@@ -75,7 +91,7 @@ const RandomNumberGenerator = () => {
             placeholder="Minimum"
             min={Number.MIN_SAFE_INTEGER}
             max={max}
-            className="w-32"
+            className="w-44"
             value={min}
             onChange={(e) => setMin(e.target.value)}
           />
@@ -85,7 +101,7 @@ const RandomNumberGenerator = () => {
             placeholder="Maximum"
             min={min}
             max={Number.MAX_SAFE_INTEGER - 1}
-            className="w-32"
+            className="w-44"
             value={max}
             onChange={(e) => setMax(e.target.value)}
           />
