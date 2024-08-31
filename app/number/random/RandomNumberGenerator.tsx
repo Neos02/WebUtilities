@@ -123,7 +123,7 @@ const RandomNumberGenerator = () => {
         </Select>
       </div>
       <div className="relative w-full">
-        <h1 className="w-full p-2 font-bold rounded-lg border text-[2.5rem] overflow-x-scroll">
+        <h1 className="w-full p-2 font-bold rounded-lg border text-[2.5rem] overflow-x-auto">
           {random}
         </h1>
         <CopyButton copyValue={random} />
