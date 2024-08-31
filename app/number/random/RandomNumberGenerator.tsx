@@ -3,15 +3,34 @@
 import { Button } from "@/components/ui/button";
 import CopyButton from "@/components/ui/CopyButton";
 import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { useState } from "react";
+
+enum NumberType {
+  INTEGER = "Integer",
+  DECIMAL = "Decimal",
+}
 
 const RandomNumberGenerator = () => {
   const [min, setMin] = useState("0");
   const [max, setMax] = useState("100");
   const [random, setRandom] = useState("0");
+  const [type, setType] = useState(NumberType.INTEGER);
 
-  const orderNumbers = () => {
-    if (parseInt(min) < parseInt(max) + 1) return;
+  const processNumbers = () => {
+    if (type === NumberType.INTEGER && parseInt(min) < parseInt(max) + 1) {
+      return;
+    }
+
+    if (type === NumberType.DECIMAL && parseFloat(min) < parseFloat(max)) {
+      return;
+    }
 
     const temp = min;
     setMin(max);
@@ -19,8 +38,6 @@ const RandomNumberGenerator = () => {
   };
 
   const generateRandomInt = () => {
-    orderNumbers();
-
     const minCeiled = Math.ceil(parseInt(min));
     const maxFloored = Math.floor(parseInt(max) + 1);
 
@@ -29,6 +46,24 @@ const RandomNumberGenerator = () => {
         Math.random() * (maxFloored - minCeiled) + minCeiled
       ).toString()
     );
+  };
+
+  const generateRandomFloat = () => {
+    const minNumber = parseFloat(min);
+    const maxNumber = parseFloat(max);
+
+    setRandom((Math.random() * (maxNumber - minNumber) + minNumber).toString());
+  };
+
+  const generateRandom = () => {
+    processNumbers();
+
+    switch (type) {
+      case NumberType.INTEGER:
+        return generateRandomInt();
+      case NumberType.DECIMAL:
+        return generateRandomFloat();
+    }
   };
 
   return (
@@ -54,6 +89,21 @@ const RandomNumberGenerator = () => {
             value={max}
             onChange={(e) => setMax(e.target.value)}
           />
+          <Select
+            value={type}
+            onValueChange={(value: NumberType) => setType(value)}
+          >
+            <SelectTrigger className="w-32">
+              <SelectValue placeholder="Type" />
+            </SelectTrigger>
+            <SelectContent>
+              {Object.values(NumberType).map((type) => (
+                <SelectItem key={type} value={type}>
+                  {type}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
       </div>
       <div className="relative w-full">
@@ -62,7 +112,7 @@ const RandomNumberGenerator = () => {
         </h1>
         <CopyButton copyValue={random} />
       </div>
-      <Button onClick={generateRandomInt}>Generate</Button>
+      <Button onClick={generateRandom}>Generate</Button>
     </>
   );
 };
