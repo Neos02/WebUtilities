@@ -6,8 +6,11 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import WordCounter from "./WordCounter";
+import delay from "delay";
 
-const TextCountPage = () => {
+const TextCountPage = async () => {
+  await delay(2000);
+
   return (
     <Card className="flex flex-col h-full">
       <CardHeader>

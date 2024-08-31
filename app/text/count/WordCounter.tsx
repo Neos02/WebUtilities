@@ -1,10 +1,10 @@
 "use client";
 
 import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
-import { charCount, wordCount, senCount, mostCommonwords } from "text-count";
-import { Separator } from "@/components/ui/separator";
+import { charCount, mostCommonwords, senCount, wordCount } from "text-count";
 
 const WordCounter = () => {
   const [text, setText] = useState("");
@@ -21,9 +21,9 @@ const WordCounter = () => {
         value={text}
         onChange={(e) => setText(e.target.value)}
         placeholder="Start typing or paste your text here"
-        className="h-80 md:h-auto resize-none"
+        className="w-auto flex-1 h-80 md:h-auto resize-none"
       />
-      <div className="flex flex-col gap-2 whitespace-nowrap md:w-60">
+      <div className="flex flex-col gap-2 whitespace-nowrap md:w-48">
         <h1 className="font-bold">Results</h1>
         {results.map((result) => (
           <Badge key={result.label} className="flex justify-between px-2 py-1">
