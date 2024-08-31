@@ -6,6 +6,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import RandomNumberGenerator from "./RandomNumberGenerator";
+import { Metadata } from "next";
 
 const NumberRandomPage = () => {
   return (
@@ -21,6 +22,11 @@ const NumberRandomPage = () => {
       </CardContent>
     </Card>
   );
+};
+
+export const metadata: Metadata = {
+  title: "Random Number Generator",
+  description: "Generate a random number within a range",
 };
 
 export default NumberRandomPage;

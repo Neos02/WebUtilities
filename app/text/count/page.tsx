@@ -6,6 +6,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import WordCounter from "./WordCounter";
+import { Metadata } from "next";
 
 const TextCountPage = () => {
   return (
@@ -21,6 +22,11 @@ const TextCountPage = () => {
       </CardContent>
     </Card>
   );
+};
+
+export const metadata: Metadata = {
+  title: "Word Counter",
+  description: "Count the number of words, characters, and sentences",
 };
 
 export default TextCountPage;

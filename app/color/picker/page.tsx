@@ -5,6 +5,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Metadata } from "next";
 import ColorPicker from "./ColorPicker";
 
 const ColorPickerPage = () => {
@@ -21,6 +22,11 @@ const ColorPickerPage = () => {
       </CardContent>
     </Card>
   );
+};
+
+export const metadata: Metadata = {
+  title: "Color Picker",
+  description: "Select colors and convert between formats",
 };
 
 export default ColorPickerPage;

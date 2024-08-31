@@ -5,6 +5,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Metadata } from "next";
 import Converter from "./Converter";
 
 const NumberConvertPage = () => {
@@ -21,6 +22,11 @@ const NumberConvertPage = () => {
       </CardContent>
     </Card>
   );
+};
+
+export const metadata: Metadata = {
+  title: "Base Converter",
+  description: "Convert numbers from one base to another",
 };
 
 export default NumberConvertPage;
