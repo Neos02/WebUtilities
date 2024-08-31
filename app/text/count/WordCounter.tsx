@@ -16,14 +16,14 @@ const WordCounter = () => {
   ];
 
   return (
-    <div className="flex justify-between gap-4 w-full flex-1">
+    <div className="flex flex-col md:flex-row justify-between gap-4 w-full flex-1">
       <Textarea
         value={text}
         onChange={(e) => setText(e.target.value)}
         placeholder="Start typing or paste your text here"
-        className="resize-none"
+        className="h-80 md:h-auto resize-none"
       />
-      <div className="flex flex-col gap-2 whitespace-nowrap w-60">
+      <div className="flex flex-col gap-2 whitespace-nowrap md:w-60">
         <h1 className="font-bold">Results</h1>
         {results.map((result) => (
           <Badge key={result.label} className="flex justify-between px-2 py-1">
