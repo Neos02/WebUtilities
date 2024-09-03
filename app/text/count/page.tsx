@@ -1,32 +1,18 @@
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import WordCounter from "./WordCounter";
+import ToolLayout from "@/components/layout/ToolLayout";
 import { Metadata } from "next";
+import WordCounter from "./WordCounter";
+
+const title = "Word Counter";
+const description = "Count the number of words, characters, and sentences";
 
 const TextCountPage = () => {
   return (
-    <Card className="flex flex-col h-full">
-      <CardHeader>
-        <CardTitle>Word Counter</CardTitle>
-        <CardDescription>
-          Count the number of words, characters, and sentences
-        </CardDescription>
-      </CardHeader>
-      <CardContent className="flex flex-col items-start gap-4 flex-1">
-        <WordCounter />
-      </CardContent>
-    </Card>
+    <ToolLayout title={title} description={description}>
+      <WordCounter />
+    </ToolLayout>
   );
 };
 
-export const metadata: Metadata = {
-  title: "Word Counter",
-  description: "Count the number of words, characters, and sentences",
-};
+export const metadata: Metadata = { title, description };
 
 export default TextCountPage;
