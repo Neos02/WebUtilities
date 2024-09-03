@@ -24,7 +24,7 @@ export default function RootLayout({
           `min-h-screen h-screen bg-background antialiased ${inter.className}`
         )}
       >
-        <div className="relative grid grid-rows-[max-content_1fr] w-11/12 h-full md:w-4/5 max-w-screen-lg mx-auto pb-14">
+        <div className="relative h-full mx-auto pb-14">
           <Navbar />
           <main>{children}</main>
         </div>

@@ -14,7 +14,7 @@ import { NavbarProps } from "./Navbar";
 const DesktopNav = ({ tools, links }: NavbarProps) => {
   return (
     <NavigationMenu
-      className={`hidden md:grid grid-cols-1 max-w-full w-full py-2`}
+      className={`hidden md:grid grid-cols-1 w-4/5 max-w-screen-lg mx-auto py-2`}
     >
       <NavigationMenuList className="w-full flex justify-between">
         <NavigationMenuItem>
