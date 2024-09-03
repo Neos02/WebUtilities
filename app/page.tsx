@@ -1,12 +1,41 @@
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Palette, Type, Binary, Dice5 } from "lucide-react";
+import ToolCard from "@/components/ui/ToolCard";
+import { Binary, Dice5, LucideProps, Palette, Type } from "lucide-react";
+import { ForwardRefExoticComponent, RefAttributes } from "react";
+
+const toolCards: {
+  title: string;
+  description: string;
+  icon: ForwardRefExoticComponent<
+    Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>
+  >;
+  href: string;
+}[] = [
+  {
+    title: "Base Converter",
+    description: "Convert between different number bases",
+    icon: Binary,
+    href: "/number/convert",
+  },
+  {
+    title: "Color Picker",
+    description: "Choose and convert colors with ease",
+    icon: Palette,
+    href: "/color/picker",
+  },
+  {
+    title: "Random Number Generator",
+    description: "Generate random numbers in various ranges",
+    icon: Dice5,
+    href: "/number/random",
+  },
+  {
+    title: "Word Counter",
+    description: "Count words, characters, and more",
+    icon: Type,
+    href: "/text/count",
+  },
+];
 
 export default function Home() {
   return (
@@ -36,54 +65,14 @@ export default function Home() {
             Our Tools
           </h2>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <Card>
-              <CardHeader>
-                <Palette className="h-8 w-8 mb-2" />
-                <CardTitle>Color Picker</CardTitle>
-                <CardDescription>
-                  Choose and convert colors with ease
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Button className="w-full">Open Tool</Button>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <Dice5 className="h-8 w-8 mb-2" />
-                <CardTitle>Random Number Generator</CardTitle>
-                <CardDescription>
-                  Generate random numbers in various ranges
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Button className="w-full">Open Tool</Button>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <Type className="h-8 w-8 mb-2" />
-                <CardTitle>Word Counter</CardTitle>
-                <CardDescription>
-                  Count words, characters, and more
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Button className="w-full">Open Tool</Button>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <Binary className="h-8 w-8 mb-2" />
-                <CardTitle>Number Base Converter</CardTitle>
-                <CardDescription>
-                  Convert between different number bases
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Button className="w-full">Open Tool</Button>
-              </CardContent>
-            </Card>
+            {toolCards.map((tool) => (
+              <ToolCard
+                title={tool.title}
+                description={tool.description}
+                icon={tool.icon}
+                href={tool.href}
+              />
+            ))}
           </div>
         </div>
       </section>
