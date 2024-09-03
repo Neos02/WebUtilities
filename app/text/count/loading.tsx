@@ -7,11 +7,9 @@ const TextCountLoading = () => {
     <Card className="flex flex-col h-full">
       <CardHeader>
         <CardTitle>
-          <Skeleton className="w-40 h-6" />
+          <Skeleton className="w-1/2 max-w-60 h-6" />
         </CardTitle>
-        <div>
-          <Skeleton className="w-96 h-5" />
-        </div>
+        <Skeleton className="w-full max-w-96 h-5" />
       </CardHeader>
       <CardContent className="flex flex-col md:flex-row items-start gap-4 flex-1">
         <Skeleton className="flex-1 w-full md:h-full" />

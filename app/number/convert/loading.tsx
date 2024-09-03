@@ -6,11 +6,9 @@ const NumberConvertLoading = () => {
     <Card className="h-full">
       <CardHeader>
         <CardTitle>
-          <Skeleton className="w-36 h-6" />
+          <Skeleton className="w-1/2 max-w-60 h-6" />
         </CardTitle>
-        <div>
-          <Skeleton className="w-72 h-5" />
-        </div>
+        <Skeleton className="w-full max-w-96 h-5" />
       </CardHeader>
       <CardContent className="flex flex-col items-start gap-4">
         <div className="flex flex-col xs:flex-row gap-4">
