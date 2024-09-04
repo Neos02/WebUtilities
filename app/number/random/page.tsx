@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import RandomNumberGenerator from "./RandomNumberGenerator";
 
 const title = "Random Number Generator";
-const description = "Generate a random number within a range";
+const description = "Generate a random number within a specified range";
 
 const NumberRandomPage = () => {
   return (

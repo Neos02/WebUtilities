@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import CopyButton from "@/components/ui/CopyButton";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import {
   Select,
   SelectContent,
@@ -10,7 +11,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useState } from "react";
+import MinMaxInputs from "./MinMaxInputs";
+import { Dice5, Dices } from "lucide-react";
 
 enum NumberType {
   INTEGER = "Integer",
@@ -20,8 +24,9 @@ enum NumberType {
 const RandomNumberGenerator = () => {
   const [min, setMin] = useState("0");
   const [max, setMax] = useState("100");
-  const [random, setRandom] = useState("0");
-  const [type, setType] = useState(NumberType.INTEGER);
+  const [random, setRandom] = useState<string | null>(null);
+  const [numberType, setNumberType] = useState(NumberType.INTEGER);
+  const [decimalPlaces, setDecimalPlaces] = useState("2");
 
   const processNumbers = () => {
     const minInt = parseInt(min);
@@ -40,11 +45,14 @@ const RandomNumberGenerator = () => {
       ).toString()
     );
 
-    if (type === NumberType.INTEGER && minInt < maxInt + 1) {
+    if (numberType === NumberType.INTEGER && minInt < maxInt + 1) {
       return;
     }
 
-    if (type === NumberType.DECIMAL && parseFloat(min) < parseFloat(max)) {
+    if (
+      numberType === NumberType.DECIMAL &&
+      parseFloat(min) < parseFloat(max)
+    ) {
       return;
     }
 
@@ -68,13 +76,17 @@ const RandomNumberGenerator = () => {
     const minNumber = parseFloat(min);
     const maxNumber = parseFloat(max);
 
-    setRandom((Math.random() * (maxNumber - minNumber) + minNumber).toString());
+    setRandom(
+      (Math.random() * (maxNumber - minNumber) + minNumber)
+        .toFixed(parseInt(decimalPlaces))
+        .toString()
+    );
   };
 
   const generateRandom = () => {
     processNumbers();
 
-    switch (type) {
+    switch (numberType) {
       case NumberType.INTEGER:
         return generateRandomInt();
       case NumberType.DECIMAL:
@@ -83,53 +95,57 @@ const RandomNumberGenerator = () => {
   };
 
   return (
-    <>
-      <div className="flex flex-col md:flex-row gap-4 w-full">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <Input
-            type="number"
-            placeholder="Minimum"
-            min={Number.MIN_SAFE_INTEGER}
-            max={max}
-            className="md:w-44"
-            value={min}
-            onChange={(e) => setMin(e.target.value)}
-          />
-          <span className="hidden md:block">To</span>
-          <Input
-            type="number"
-            placeholder="Maximum"
-            min={min}
-            max={Number.MAX_SAFE_INTEGER - 1}
-            className="md:w-44"
-            value={max}
-            onChange={(e) => setMax(e.target.value)}
-          />
-        </div>
-        <Select
-          value={type}
-          onValueChange={(value: NumberType) => setType(value)}
-        >
-          <SelectTrigger className="md:w-32">
-            <SelectValue placeholder="Type" />
-          </SelectTrigger>
-          <SelectContent>
-            {Object.values(NumberType).map((type) => (
-              <SelectItem key={type} value={type}>
-                {type}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
+    <div className="flex flex-col gap-4 w-full max-w-2xl mx-auto">
+      <Tabs
+        defaultValue={numberType}
+        onValueChange={(value) => setNumberType(value as NumberType)}
+        className="space-y-4"
+      >
+        <TabsList className="grid grid-cols-2 w-full">
+          <TabsTrigger value={NumberType.INTEGER}>
+            {NumberType.INTEGER}
+          </TabsTrigger>
+          <TabsTrigger value={NumberType.DECIMAL}>
+            {NumberType.DECIMAL}
+          </TabsTrigger>
+        </TabsList>
+        <TabsContent value={NumberType.INTEGER}>
+          <MinMaxInputs min={min} setMin={setMin} max={max} setMax={setMax} />
+        </TabsContent>
+        <TabsContent value={NumberType.DECIMAL}>
+          <div className="space-y-4">
+            <MinMaxInputs min={min} setMin={setMin} max={max} setMax={setMax} />
+            <div className="space-y-2">
+              <Label htmlFor="decimalPlaces">Decimal Places</Label>
+              <Input
+                id="decimalPlaces"
+                type="number"
+                min="0"
+                max="10"
+                value={decimalPlaces}
+                onChange={(e) => setDecimalPlaces(e.target.value)}
+              />
+            </div>
+          </div>
+        </TabsContent>
+      </Tabs>
+
+      <Button onClick={generateRandom}>
+        <Dices className="w-4 h-4 mr-2" />
+        <span>Generate Number</span>
+      </Button>
+
+      <div className="p-6 bg-gray-100 rounded-lg text-center">
+        <h2 className="text-2xl font-bold">Generated Number</h2>
+        {random ? (
+          <p className="text-4xl font-mono">{random}</p>
+        ) : (
+          <p className="text-gray-500">
+            Click "Generate Number" to get started!
+          </p>
+        )}
       </div>
-      <div className="relative w-full">
-        <h1 className="w-full p-2 font-bold rounded-lg border text-[2.5rem] overflow-x-auto">
-          {random}
-        </h1>
-        <CopyButton copyValue={random} />
-      </div>
-      <Button onClick={generateRandom}>Generate</Button>
-    </>
+    </div>
   );
 };
 
