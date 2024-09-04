@@ -2,20 +2,13 @@
 
 import { Button } from "@/components/ui/button";
 import CopyButton from "@/components/ui/CopyButton";
+import ErrorMessage from "@/components/ui/ErrorMessage";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Dices } from "lucide-react";
 import { useState } from "react";
 import MinMaxInputs from "./MinMaxInputs";
-import { Dice5, Dices } from "lucide-react";
-import ErrorMessage from "@/components/ui/ErrorMessage";
 
 enum NumberType {
   INTEGER = "Integer",
