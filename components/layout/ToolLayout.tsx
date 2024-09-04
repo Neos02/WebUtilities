@@ -15,17 +15,19 @@ interface Props {
 
 const ToolLayout = ({ title, description, children }: Props) => {
   return (
-    <div className="px-4 pb-4 h-full">
-      <Card className="flex flex-col container h-full">
-        <CardHeader>
-          <CardTitle>{title}</CardTitle>
-          <CardDescription>{description}</CardDescription>
-        </CardHeader>
-        <CardContent className="flex flex-col items-start gap-4 flex-1">
-          {children}
-        </CardContent>
-      </Card>
-    </div>
+    <>
+      <header className="w-full py-12 bg-gray-100">
+        <div className="flex flex-col items-center text-center container">
+          <h1 className="text-3xl font-bold tracking-tighter md:text-4xl">
+            {title}
+          </h1>
+          <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl">
+            {description}
+          </p>
+        </div>
+      </header>
+      <section className="container py-12">{children}</section>
+    </>
   );
 };
 
