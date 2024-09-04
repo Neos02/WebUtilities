@@ -46,5 +46,6 @@ const InputWithCopy = React.forwardRef<HTMLInputElement, InputProps>(
     );
   }
 );
+InputWithCopy.displayName = "InputWithCopy";
 
 export { Input, InputWithCopy };

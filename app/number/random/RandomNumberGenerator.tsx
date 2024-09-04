@@ -114,7 +114,7 @@ const RandomNumberGenerator = () => {
           <p className="text-4xl font-mono break-all py-4">{random}</p>
         ) : (
           <p className="text-gray-500">
-            Click "Generate Number" to get started!
+            Click &quot;Generate Number&quot; to get started!
           </p>
         )}
         {random && <CopyButton className="hover:bg-white" copyValue={random} />}

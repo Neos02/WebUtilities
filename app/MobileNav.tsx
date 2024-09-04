@@ -32,7 +32,7 @@ const MobileNav = ({ links }: NavbarProps) => {
     if (isOpen) {
       triggerRef?.current?.click();
     }
-  }, [pathname]);
+  }, [isOpen, pathname]);
 
   return (
     <div className="flex justify-between container py-2 md:hidden">

@@ -11,7 +11,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { ArrowLeftRight, RotateCcw } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const defaultFrom = "10";
 const defaultTo = "16";
@@ -28,13 +28,13 @@ const Converter = () => {
   const [fromBase, setFromBase] = useState(defaultFrom);
   const [toBase, setToBase] = useState(defaultTo);
 
-  const convert = () => {
+  const convert = useCallback(() => {
     const converted = parseInt(input, parseInt(fromBase)).toString(
       parseInt(toBase)
     );
 
     setResult(converted && converted != NaN.toString() ? converted : "");
-  };
+  }, [input, fromBase, toBase]);
 
   const swapBases = () => {
     const tempBase = fromBase;
@@ -54,7 +54,7 @@ const Converter = () => {
 
   useEffect(() => {
     convert();
-  }, [input, fromBase, toBase]);
+  }, [input, fromBase, toBase, convert]);
 
   return (
     <div className="flex flex-col gap-4 max-w-2xl mx-auto">
