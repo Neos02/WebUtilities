@@ -27,6 +27,8 @@ const InputWithCopy = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, type, value, onChange = () => {}, ...props }, ref) => {
     const [inputValue, setInputValue] = React.useState(value ?? "");
 
+    React.useEffect(() => setInputValue(value ?? ""), [value]);
+
     return (
       <div className={cn("relative", className)}>
         <Input
