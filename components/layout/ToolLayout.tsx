@@ -1,11 +1,4 @@
 import { ReactNode } from "react";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardContent,
-} from "../ui/card";
 
 interface Props {
   title: string;
@@ -26,7 +19,7 @@ const ToolLayout = ({ title, description, children }: Props) => {
           </p>
         </div>
       </header>
-      <section className="container py-12">{children}</section>
+      <section className="container py-12 max-w-2xl">{children}</section>
     </>
   );
 };

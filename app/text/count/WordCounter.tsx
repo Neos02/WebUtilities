@@ -16,12 +16,12 @@ const WordCounter = () => {
   ];
 
   return (
-    <div className="flex flex-col md:flex-row justify-between gap-4 w-full max-w-2xl h-[337px] flex-1 mx-auto">
+    <div className="flex flex-col md:flex-row justify-between gap-4 w-full max-w-2xl flex-1 mx-auto">
       <Textarea
         value={text}
         onChange={(e) => setText(e.target.value)}
         placeholder="Start typing or paste your text here"
-        className="w-auto flex-1 h-80 md:h-auto resize-none"
+        className="flex-1 w-auto min-h-80 md:h-[337px] resize-none"
       />
       <div className="flex flex-col gap-2 whitespace-nowrap md:w-48">
         <h1 className="font-bold">Results</h1>
