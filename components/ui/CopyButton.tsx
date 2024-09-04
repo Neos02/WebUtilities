@@ -1,9 +1,9 @@
 "use client";
 
+import { cn } from "@/lib/utils";
+import { useState } from "react";
 import { FiCheck, FiClipboard } from "react-icons/fi";
 import { Button, ButtonProps } from "./button";
-import { useState } from "react";
-import { cn } from "@/lib/utils";
 
 interface Props extends ButtonProps {
   copyValue: string;

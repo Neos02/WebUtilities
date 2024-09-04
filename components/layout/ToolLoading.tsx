@@ -1,11 +1,4 @@
-import { PropsWithChildren, ReactNode } from "react";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardContent,
-} from "../ui/card";
+import { PropsWithChildren } from "react";
 import { Skeleton } from "../ui/skeleton";
 
 interface Props extends PropsWithChildren {
