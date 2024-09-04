@@ -1,9 +1,9 @@
 .rcp-saturation {
-  @apply !w-full md:!w-96 !rounded-lg !cursor-pointer;
+  @apply !w-full sm:!w-80 !rounded-lg !cursor-pointer;
 }
 
 .rcp-hue {
-  @apply !w-full md:!w-96 !h-8 !rounded-lg;
+  @apply !w-full sm:!w-80 !h-8 !rounded-lg;
 }
 
 .rcp-hue-cursor {

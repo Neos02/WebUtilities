@@ -117,10 +117,10 @@ const ColorPicker = () => {
   }, [fields.hsv.focused, color.hsv]);
 
   return (
-    <div className="flex flex-col md:flex-row gap-4 w-full">
+    <div className="flex flex-col sm:flex-row gap-4 w-full max-w-2xl mx-auto">
       <div className="flex flex-col gap-4">
         <div className="border rounded-lg">
-          <Saturation height={384} color={color} onChange={setColor} />
+          <Saturation height={320} color={color} onChange={setColor} />
         </div>
         <div className="border rounded-lg">
           <Hue color={color} onChange={setColor} />
@@ -129,7 +129,7 @@ const ColorPicker = () => {
 
       <div className="flex flex-col flex-1 gap-4 h-96">
         <div
-          className="h-[162px] rounded-lg border"
+          className="h-[98px] rounded-lg border"
           style={{ backgroundColor: color.hex }}
         />
 
