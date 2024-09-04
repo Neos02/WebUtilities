@@ -11,7 +11,7 @@ interface Props {
 const MinMaxInputs = ({ min, setMin, max, setMax }: Props) => {
   return (
     <div className="flex flex-col md:flex-row gap-4">
-      <div className="flex-1 space-y-2">
+      <div className="flex-1 flex flex-col gap-2">
         <Label htmlFor="minValue">Minimum</Label>
         <Input
           id="minValue"
@@ -21,7 +21,7 @@ const MinMaxInputs = ({ min, setMin, max, setMax }: Props) => {
           placeholder="Enter minimum value"
         />
       </div>
-      <div className="flex-1 space-y-2">
+      <div className="flex-1 flex flex-col gap-2">
         <Label htmlFor="maxValue">Maximum</Label>
         <Input
           id="maxValue"

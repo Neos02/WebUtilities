@@ -70,7 +70,7 @@ const RandomNumberGenerator = () => {
       <Tabs
         defaultValue={numberType}
         onValueChange={(value) => setNumberType(value as NumberType)}
-        className="space-y-4"
+        className="flex flex-col gap-4"
       >
         <TabsList className="grid grid-cols-2 w-full">
           <TabsTrigger value={NumberType.INTEGER}>
@@ -84,9 +84,9 @@ const RandomNumberGenerator = () => {
           <MinMaxInputs min={min} setMin={setMin} max={max} setMax={setMax} />
         </TabsContent>
         <TabsContent value={NumberType.DECIMAL}>
-          <div className="space-y-4">
+          <div className="flex flex-col gap-4">
             <MinMaxInputs min={min} setMin={setMin} max={max} setMax={setMax} />
-            <div className="space-y-2">
+            <div className="flex flex-col gap-2">
               <Label htmlFor="decimalPlaces">Decimal Places</Label>
               <Input
                 id="decimalPlaces"
