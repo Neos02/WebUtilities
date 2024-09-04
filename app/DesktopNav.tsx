@@ -56,10 +56,10 @@ const DesktopNav = ({ links }: NavbarProps) => {
               </NavigationMenuItem>
             )
           )}
-
-          <NavigationMenuViewport />
         </div>
       </NavigationMenuList>
+
+      <NavigationMenuViewport />
     </NavigationMenu>
   );
 };
