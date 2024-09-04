@@ -16,7 +16,7 @@ const WordCounter = () => {
   ];
 
   return (
-    <div className="flex flex-col md:flex-row justify-between gap-4 w-full flex-1">
+    <div className="flex flex-col md:flex-row justify-between gap-4 w-full max-w-2xl h-[337px] flex-1 mx-auto">
       <Textarea
         value={text}
         onChange={(e) => setText(e.target.value)}
