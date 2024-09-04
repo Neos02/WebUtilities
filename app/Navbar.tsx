@@ -1,46 +1,65 @@
 import DesktopNav from "./DesktopNav";
 import MobileNav from "./MobileNav";
 
-const tools: { label: string; description: string; href: string }[] = [
-  {
-    label: "Base Converter",
-    description:
-      "Convert numbers between different bases such as binary and decimal.",
-    href: "/number/convert",
-  },
-  {
-    label: "Color Picker",
-    description: "Select and customize colors and convert between formats.",
-    href: "/color/picker",
-  },
-  {
-    label: "Random Number Generator",
-    description: "Produce random numbers within a specified range.",
-    href: "/number/random",
-  },
-  {
-    label: "Word Counter",
-    description:
-      "Counts the number of words, characters, and sentences in text.",
-    href: "/text/count",
-  },
-];
+interface Link {
+  label: string;
+  href: string;
+}
 
-const links: { label: string; href: string }[] = [
-  { label: "Suggestions", href: "/suggestions" },
-  { label: "Donate", href: "/donate" },
+interface LinkWithDescription extends Link {
+  description: string;
+}
+
+interface SubMenu {
+  label: string;
+  subItems: LinkWithDescription[];
+}
+
+export function isSubMenu(item: Link | SubMenu): item is SubMenu {
+  return (item as SubMenu).subItems !== undefined;
+}
+
+const links: (Link | SubMenu)[] = [
+  { label: "Home", href: "/" },
+  {
+    label: "Tools",
+    subItems: [
+      {
+        label: "Base Converter",
+        description:
+          "Convert numbers between different bases such as binary and decimal.",
+        href: "/number/convert",
+      },
+      {
+        label: "Color Picker",
+        description: "Select and customize colors and convert between formats.",
+        href: "/color/picker",
+      },
+      {
+        label: "Random Number Generator",
+        description: "Produce random numbers within a specified range.",
+        href: "/number/random",
+      },
+      {
+        label: "Word Counter",
+        description:
+          "Counts the number of words, characters, and sentences in text.",
+        href: "/text/count",
+      },
+    ],
+  },
+  { label: "About", href: "/about" },
 ];
 
 export interface NavbarProps {
-  tools: typeof tools;
   links: typeof links;
 }
 
 const Navbar = () => {
   return (
     <>
-      <DesktopNav tools={tools} links={links} />
-      <MobileNav tools={tools} links={links} />
+      <DesktopNav links={links} />
+      <MobileNav links={links} />
     </>
   );
 };

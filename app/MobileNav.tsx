@@ -20,10 +20,10 @@ import { usePathname } from "next/navigation";
 import { LegacyRef, useEffect, useRef, useState } from "react";
 import { IoMenu } from "react-icons/io5";
 import { PiToolboxFill } from "react-icons/pi";
-import { NavbarProps } from "./Navbar";
+import { isSubMenu, NavbarProps } from "./Navbar";
 import NavSubMenu from "./NavSubMenu";
 
-const MobileNav = ({ tools, links }: NavbarProps) => {
+const MobileNav = ({ links }: NavbarProps) => {
   const pathname = usePathname();
   const triggerRef: LegacyRef<HTMLButtonElement> = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
@@ -58,21 +58,27 @@ const MobileNav = ({ tools, links }: NavbarProps) => {
                 </Link>
               </NavigationMenuItem>
 
-              <NavSubMenu label="Tools" items={tools} />
-
-              {links.map((link) => (
-                <NavigationMenuItem key={link.label} className="w-full !mx-0">
-                  <Link
-                    href={link.href}
-                    className={cn(
-                      "!w-full !justify-start",
-                      navigationMenuTriggerStyle()
-                    )}
-                  >
-                    {link.label}
-                  </Link>
-                </NavigationMenuItem>
-              ))}
+              {links.map((link) =>
+                isSubMenu(link) ? (
+                  <NavSubMenu
+                    key={link.label}
+                    label="Tools"
+                    items={link.subItems}
+                  />
+                ) : (
+                  <NavigationMenuItem key={link.label} className="w-full !mx-0">
+                    <Link
+                      href={link.href}
+                      className={cn(
+                        "!w-full !justify-start",
+                        navigationMenuTriggerStyle()
+                      )}
+                    >
+                      {link.label}
+                    </Link>
+                  </NavigationMenuItem>
+                )
+              )}
             </NavigationMenuList>
           </DrawerContent>
         </Drawer>
