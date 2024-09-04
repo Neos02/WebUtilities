@@ -1,9 +1,9 @@
+import { getPageMetadata } from "@/app/Navbar";
 import ToolLayout from "@/components/layout/ToolLayout";
 import { Metadata } from "next";
 import RandomNumberGenerator from "./RandomNumberGenerator";
 
-const title = "Random Number Generator";
-const description = "Generate a random number within a specified range";
+const { title, description } = getPageMetadata("/number/random");
 
 const NumberRandomPage = () => {
   return (

@@ -1,41 +1,12 @@
 import { Button } from "@/components/ui/button";
 import ToolCard from "@/components/ui/ToolCard";
-import { Binary, Dice5, LucideProps, Palette, Type } from "lucide-react";
+import { Binary, Dices, LucideProps, Palette, Type } from "lucide-react";
 import { ForwardRefExoticComponent, RefAttributes } from "react";
+import { tools } from "./Navbar";
 
-const toolCards: {
-  title: string;
-  description: string;
-  icon: ForwardRefExoticComponent<
-    Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>
-  >;
-  href: string;
-}[] = [
-  {
-    title: "Base Converter",
-    description: "Convert between different number bases",
-    icon: Binary,
-    href: "/number/convert",
-  },
-  {
-    title: "Color Picker",
-    description: "Choose and convert colors with ease",
-    icon: Palette,
-    href: "/color/picker",
-  },
-  {
-    title: "Random Number Generator",
-    description: "Generate random numbers in various ranges",
-    icon: Dice5,
-    href: "/number/random",
-  },
-  {
-    title: "Word Counter",
-    description: "Count words, characters, and more",
-    icon: Type,
-    href: "/text/count",
-  },
-];
+const toolIcons: ForwardRefExoticComponent<
+  Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>
+>[] = [Binary, Palette, Dices, Type];
 
 export default function Home() {
   return (
@@ -65,11 +36,12 @@ export default function Home() {
             Our Tools
           </h2>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {toolCards.map((tool) => (
+            {tools.map((tool, i) => (
               <ToolCard
-                title={tool.title}
+                key={tool.label}
+                title={tool.label}
                 description={tool.description}
-                icon={tool.icon}
+                icon={toolIcons[i]}
                 href={tool.href}
               />
             ))}

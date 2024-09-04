@@ -1,9 +1,9 @@
+import { getPageMetadata } from "@/app/Navbar";
 import ToolLayout from "@/components/layout/ToolLayout";
 import { Metadata } from "next";
 import ColorPicker from "./ColorPicker";
 
-const title = "Color Picker";
-const description = "Select colors and convert between formats";
+const { title, description } = getPageMetadata("/color/picker");
 
 const ColorPickerPage = () => {
   return (

@@ -1,9 +1,9 @@
+import { getPageMetadata } from "@/app/Navbar";
 import ToolLayout from "@/components/layout/ToolLayout";
 import { Metadata } from "next";
 import Converter from "./Converter";
 
-const title = "Base Converter";
-const description = "Convert numbers from one base to another";
+const { title, description } = getPageMetadata("/number/convert");
 
 const NumberConvertPage = () => {
   return (

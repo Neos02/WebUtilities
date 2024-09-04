@@ -19,36 +19,45 @@ export function isSubMenu(item: Link | SubMenu): item is SubMenu {
   return (item as SubMenu).subItems !== undefined;
 }
 
+export const tools: LinkWithDescription[] = [
+  {
+    label: "Base Converter",
+    description: "Convert numbers from one base to another",
+    href: "/number/convert",
+  },
+  {
+    label: "Color Picker",
+    description: "Select colors and convert between formats.",
+    href: "/color/picker",
+  },
+  {
+    label: "Random Number Generator",
+    description: "Generate a random number within a specified range",
+    href: "/number/random",
+  },
+  {
+    label: "Word Counter",
+    description:
+      "Count the number of words, characters, and sentences in a text",
+    href: "/text/count",
+  },
+];
+
+export function getPageMetadata(path: string) {
+  const { label: title, description } = tools.find(
+    (tool) => tool.href === path
+  ) ?? { label: "", description: "" };
+
+  return { title, description };
+}
+
 const links: (Link | SubMenu)[] = [
   { label: "Home", href: "/" },
   {
     label: "Tools",
-    subItems: [
-      {
-        label: "Base Converter",
-        description:
-          "Convert numbers between different bases such as binary and decimal.",
-        href: "/number/convert",
-      },
-      {
-        label: "Color Picker",
-        description: "Select and customize colors and convert between formats.",
-        href: "/color/picker",
-      },
-      {
-        label: "Random Number Generator",
-        description: "Produce random numbers within a specified range.",
-        href: "/number/random",
-      },
-      {
-        label: "Word Counter",
-        description:
-          "Counts the number of words, characters, and sentences in text.",
-        href: "/text/count",
-      },
-    ],
+    subItems: tools,
   },
-  { label: "About", href: "/about" },
+  // { label: "About", href: "/about" },
 ];
 
 export interface NavbarProps {
