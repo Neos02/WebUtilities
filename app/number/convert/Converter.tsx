@@ -74,7 +74,7 @@ const Converter = () => {
             <SelectTrigger id="inputBase">
               <SelectValue placeholder="Select base" />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent position="item-aligned">
               {bases.map((base) => (
                 <SelectItem key={base} value={base.toString()}>
                   Base {base}
@@ -89,7 +89,7 @@ const Converter = () => {
             <SelectTrigger id="outputBase">
               <SelectValue placeholder="Select base" />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent position="item-aligned">
               {bases.map((base) => (
                 <SelectItem key={base} value={base.toString()}>
                   Base {base}
