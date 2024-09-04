@@ -57,7 +57,7 @@ const Converter = () => {
   }, [input, fromBase, toBase]);
 
   return (
-    <div className="flex flex-col gap-2 max-w-2xl mx-auto">
+    <div className="flex flex-col gap-4 max-w-2xl mx-auto">
       <div className="flex flex-col gap-2">
         <Label htmlFor="inputNumber">Input Number</Label>
         <Input
@@ -68,7 +68,7 @@ const Converter = () => {
         />
       </div>
       <div className="flex gap-4">
-        <div className="flex-1">
+        <div className="flex-1 flex flex-col gap-2">
           <Label htmlFor="inputBase">From Base</Label>
           <Select value={fromBase} onValueChange={setFromBase}>
             <SelectTrigger id="inputBase">
@@ -83,7 +83,7 @@ const Converter = () => {
             </SelectContent>
           </Select>
         </div>
-        <div className="flex-1">
+        <div className="flex-1 flex flex-col gap-2">
           <Label htmlFor="outputBase">To Base</Label>
           <Select value={toBase} onValueChange={setToBase}>
             <SelectTrigger id="outputBase">

@@ -1,31 +1,33 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import ToolLoading from "@/components/layout/ToolLoading";
 import { Skeleton } from "@/components/ui/skeleton";
 
 const NumberConvertLoading = () => {
   return (
-    <Card className="h-full">
-      <CardHeader>
-        <CardTitle>
-          <Skeleton className="w-1/2 max-w-60 h-6" />
-        </CardTitle>
-        <Skeleton className="w-full max-w-96 h-5" />
-      </CardHeader>
-      <CardContent className="flex flex-col items-start gap-4">
-        <div className="flex flex-col xs:flex-row gap-4">
-          <div className="flex items-center gap-4">
-            <Skeleton className="w-24 h-10" />
-            <Skeleton className="w-[18px] h-5" />
-            <Skeleton className="w-24 h-10" />
-          </div>
-          <div className="flex gap-4">
-            <Skeleton className="w-[70px] h-10" />
-            <Skeleton className="w-[70px] h-10" />
-          </div>
+    <ToolLoading className="flex flex-col gap-4">
+      <div className="flex flex-col gap-2">
+        <Skeleton className="w-24 h-3.5" />
+        <Skeleton className="h-10" />
+      </div>
+      <div className="flex gap-4">
+        <div className="flex-1 flex flex-col gap-2">
+          <Skeleton className="w-16 h-3.5" />
+          <Skeleton className="h-10" />
         </div>
-        <Skeleton className="w-full h-10" />
-        <Skeleton className="w-full h-20" />
-      </CardContent>
-    </Card>
+        <div className="flex-1 flex flex-col gap-2">
+          <Skeleton className="w-14 h-3.5" />
+          <Skeleton className="h-10" />
+        </div>
+      </div>
+      <div className="flex flex-col gap-2">
+        <Skeleton className="w-24 h-3.5" />
+        <Skeleton className="h-10" />
+      </div>
+
+      <div className="flex gap-4 mt-2">
+        <Skeleton className="flex-1 h-10" />
+        <Skeleton className="flex-1 h-10" />
+      </div>
+    </ToolLoading>
   );
 };
 
