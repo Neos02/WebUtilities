@@ -73,7 +73,7 @@ const RandomNumberGenerator = () => {
   };
 
   return (
-    <div className="flex flex-col gap-4 w-full max-w-2xl mx-auto">
+    <div className="flex flex-col gap-4 w-full max-w-2xl mx-auto overflow-hidden">
       <Tabs
         defaultValue={numberType}
         onValueChange={(value) => setNumberType(value as NumberType)}
@@ -118,7 +118,9 @@ const RandomNumberGenerator = () => {
       <div className="relative p-6 bg-gray-100 rounded-lg text-center">
         <h2 className="text-2xl font-bold">Generated Number</h2>
         {random ? (
-          <p className="text-4xl font-mono overflow-x-auto py-4">{random}</p>
+          <p className="max-w-[100vw] text-4xl font-mono overflow-x-auto py-4">
+            {random}
+          </p>
         ) : (
           <p className="text-gray-500">
             Click "Generate Number" to get started!
