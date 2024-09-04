@@ -115,7 +115,7 @@ const RandomNumberGenerator = () => {
 
       <ErrorMessage error={error} />
 
-      <div className="p-6 bg-gray-100 rounded-lg text-center">
+      <div className="relative p-6 bg-gray-100 rounded-lg text-center">
         <h2 className="text-2xl font-bold">Generated Number</h2>
         {random ? (
           <p className="text-4xl font-mono overflow-x-auto py-4">{random}</p>
@@ -124,6 +124,7 @@ const RandomNumberGenerator = () => {
             Click "Generate Number" to get started!
           </p>
         )}
+        {random && <CopyButton className="hover:bg-white" copyValue={random} />}
       </div>
     </div>
   );

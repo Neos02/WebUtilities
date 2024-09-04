@@ -3,12 +3,18 @@
 import { FiCheck, FiClipboard } from "react-icons/fi";
 import { Button, ButtonProps } from "./button";
 import { useState } from "react";
+import { cn } from "@/lib/utils";
 
-interface Props {
+interface Props extends ButtonProps {
   copyValue: string;
 }
 
-const CopyButton = ({ copyValue }: Props) => {
+const CopyButton = ({
+  copyValue,
+  className,
+  onClick = () => {},
+  ...props
+}: Props) => {
   const [isCopied, setIsCopied] = useState(false);
 
   const handleCopy = async () => {
@@ -23,10 +29,14 @@ const CopyButton = ({ copyValue }: Props) => {
 
   return (
     <Button
-      className="absolute top-1 right-1 w-8 h-8"
+      className={cn("absolute top-1 right-1 w-8 h-8", className)}
       variant="ghost"
       size="icon"
-      onClick={handleCopy}
+      onClick={(e) => {
+        handleCopy();
+        onClick(e);
+      }}
+      {...props}
     >
       {isCopied ? <FiCheck /> : <FiClipboard />}
     </Button>
