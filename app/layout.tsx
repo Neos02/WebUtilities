@@ -21,13 +21,11 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          `min-h-screen h-screen bg-background antialiased ${inter.className}`
+          `grid grid-rows-[min-content_1fr] min-h-screen h-screen bg-background antialiased ${inter.className}`
         )}
       >
-        <div className="relative h-full mx-auto pb-14">
-          <Navbar />
-          <main>{children}</main>
-        </div>
+        <Navbar />
+        <main>{children}</main>
       </body>
     </html>
   );

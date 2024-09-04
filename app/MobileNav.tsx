@@ -35,7 +35,7 @@ const MobileNav = ({ tools, links }: NavbarProps) => {
   }, [pathname]);
 
   return (
-    <div className="flex justify-between w-11/12 max-w-screen-lg mx-auto py-2 md:hidden">
+    <div className="flex justify-between container py-2 md:hidden">
       <Link href="/" className={navigationMenuTriggerStyle()}>
         <PiToolboxFill size={18} />
       </Link>
