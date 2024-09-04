@@ -15,6 +15,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useState } from "react";
 import MinMaxInputs from "./MinMaxInputs";
 import { Dice5, Dices } from "lucide-react";
+import ErrorMessage from "@/components/ui/ErrorMessage";
 
 enum NumberType {
   INTEGER = "Integer",
@@ -27,70 +28,47 @@ const RandomNumberGenerator = () => {
   const [random, setRandom] = useState<string | null>(null);
   const [numberType, setNumberType] = useState(NumberType.INTEGER);
   const [decimalPlaces, setDecimalPlaces] = useState("2");
+  const [error, setError] = useState("");
 
-  const processNumbers = () => {
-    const minInt = parseInt(min);
-    const maxInt = parseInt(max);
+  const generateNumber = () => {
+    setError("");
 
-    setMin(
-      Math.min(
-        Math.max(minInt, Number.MIN_SAFE_INTEGER),
-        Number.MAX_SAFE_INTEGER
-      ).toString()
-    );
-    setMax(
-      Math.min(
-        Math.max(maxInt, Number.MIN_SAFE_INTEGER),
-        Number.MAX_SAFE_INTEGER
-      ).toString()
-    );
+    const minNum = parseFloat(min);
+    const maxNum = parseFloat(max);
+    const decimalPlacesNum = parseInt(decimalPlaces);
 
-    if (numberType === NumberType.INTEGER && minInt < maxInt + 1) {
-      return;
+    if (isNaN(minNum) || isNaN(maxNum)) {
+      return setError("Please enter valid numbers");
+    }
+
+    if (minNum > maxNum) {
+      return setError("Maximum must be greater than minimum");
     }
 
     if (
-      numberType === NumberType.DECIMAL &&
-      parseFloat(min) < parseFloat(max)
+      isNaN(decimalPlacesNum) ||
+      decimalPlacesNum < 0 ||
+      decimalPlacesNum > 100
     ) {
-      return;
+      return setError("Decimal places must be a number between 0 and 100");
     }
 
-    const temp = min;
-    setMin(max);
-    setMax(temp);
-  };
-
-  const generateRandomInt = () => {
-    const minCeiled = Math.ceil(parseInt(min));
-    const maxFloored = Math.floor(parseInt(max) + 1);
-
-    setRandom(
-      Math.floor(
-        Math.random() * (maxFloored - minCeiled) + minCeiled
-      ).toString()
-    );
-  };
-
-  const generateRandomFloat = () => {
-    const minNumber = parseFloat(min);
-    const maxNumber = parseFloat(max);
-
-    setRandom(
-      (Math.random() * (maxNumber - minNumber) + minNumber)
-        .toFixed(parseInt(decimalPlaces))
-        .toString()
-    );
-  };
-
-  const generateRandom = () => {
-    processNumbers();
-
     switch (numberType) {
+      default:
       case NumberType.INTEGER:
-        return generateRandomInt();
+        setRandom(
+          (
+            Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum
+          ).toString()
+        );
+        break;
       case NumberType.DECIMAL:
-        return generateRandomFloat();
+        setRandom(
+          (Math.random() * (maxNum - minNum) + minNum).toFixed(
+            parseInt(decimalPlaces)
+          )
+        );
+        break;
     }
   };
 
@@ -130,15 +108,17 @@ const RandomNumberGenerator = () => {
         </TabsContent>
       </Tabs>
 
-      <Button onClick={generateRandom}>
+      <Button onClick={generateNumber}>
         <Dices className="w-4 h-4 mr-2" />
         <span>Generate Number</span>
       </Button>
 
+      <ErrorMessage error={error} />
+
       <div className="p-6 bg-gray-100 rounded-lg text-center">
         <h2 className="text-2xl font-bold">Generated Number</h2>
         {random ? (
-          <p className="text-4xl font-mono">{random}</p>
+          <p className="text-4xl font-mono overflow-x-auto py-4">{random}</p>
         ) : (
           <p className="text-gray-500">
             Click "Generate Number" to get started!
