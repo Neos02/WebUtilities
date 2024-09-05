@@ -9,8 +9,8 @@ interface Props {
 
 const ToolLayout = ({ title, description, className, children }: Props) => {
   return (
-    <>
-      <header className="w-full py-12 bg-gray-100">
+    <div className="h-full pb-8 bg-gradient-to-b from-blue-50 to-indigo-100">
+      <header className="w-full py-12">
         <div className="flex flex-col items-center text-center container">
           <h1 className="text-3xl font-bold tracking-tighter md:text-4xl">
             {title}
@@ -20,10 +20,12 @@ const ToolLayout = ({ title, description, className, children }: Props) => {
           </p>
         </div>
       </header>
-      <section className={`container py-12 max-w-2xl ${className}`}>
+      <section
+        className={`container max-w-2xl p-8 rounded-lg shadow-lg bg-white ${className}`}
+      >
         {children}
       </section>
-    </>
+    </div>
   );
 };
 
