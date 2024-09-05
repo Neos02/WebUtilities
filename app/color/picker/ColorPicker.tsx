@@ -12,6 +12,7 @@ import {
 } from "react-color-palette";
 import "react-color-palette/css";
 import "./ColorPicker.css";
+import colors from "tailwindcss/colors";
 
 const float = (value: number, decimalPlaces: number) => {
   return Math.round(value * 10 ** decimalPlaces) / 10 ** decimalPlaces;
@@ -40,7 +41,7 @@ const formatHsv = ({ h, s, v, a }: IColor["hsv"]) => {
 };
 
 const ColorPicker = () => {
-  const [color, setColor] = useColor("#5865f2");
+  const [color, setColor] = useColor(colors.indigo[600]);
   const [fields, setFields] = useState({
     hex: {
       value: color.hex,
