@@ -42,7 +42,7 @@ export default function Home() {
           <h2 className="text-primary text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
             Our Tools
           </h2>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {tools.map((tool, i) => (
               <ToolCard
                 key={tool.label}

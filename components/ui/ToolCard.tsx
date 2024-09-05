@@ -21,10 +21,10 @@ interface Props {
 
 const ToolCard = ({ title, description, icon: Icon, href }: Props) => {
   return (
-    <Card className="flex flex-col justify-between h-52">
-      <CardHeader className="flex flex-col">
-        <CardTitle className="flex justify-between h-12">
-          <span>{title}</span>
+    <Card className="flex flex-col justify-between h-full">
+      <CardHeader className="flex-1 flex flex-col justify-between">
+        <CardTitle className="flex justify-between">
+          <span className="min-h-12">{title}</span>
           <Icon className="min-w-8 min-h-8" />
         </CardTitle>
         <CardDescription>{description}</CardDescription>
