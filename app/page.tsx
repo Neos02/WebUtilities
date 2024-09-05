@@ -4,13 +4,11 @@ import { Binary, Dices, LucideProps, Palette, Type } from "lucide-react";
 import { ForwardRefExoticComponent, RefAttributes } from "react";
 import { tools } from "./Navbar";
 import Link from "next/link";
+import { Metadata } from "next";
 
 const toolIcons: ForwardRefExoticComponent<
   Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>
 >[] = [Binary, Palette, Dices, Type];
-
-export const description =
-  "Your one-stop solution for various online tools. Simplify your tasks with our easy-to-use utilities.";
 
 export default function Home() {
   return (
@@ -23,7 +21,7 @@ export default function Home() {
                 Welcome to Web Utilities
               </h1>
               <p className="mx-auto max-w-[700px] text-gray-600 md:text-xl">
-                {description}
+                {metadata.description}
               </p>
             </div>
             <div className="flex gap-4">
@@ -58,3 +56,9 @@ export default function Home() {
     </div>
   );
 }
+
+export const metadata: Metadata = {
+  title: "Web Utilities",
+  description:
+    "Your one-stop solution for various online tools. Simplify your tasks with our easy-to-use utilities.",
+};

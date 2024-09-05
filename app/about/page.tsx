@@ -1,13 +1,13 @@
 import ToolLayout from "@/components/layout/ToolLayout";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { description } from "../page";
+import { metadata } from "../page";
 import Header from "@/components/ui/Header";
 
 const AboutPage = () => {
   return (
     <div className="bg-gradient-to-b from-blue-50 to-indigo-100">
-      <Header title="About Web Utilities" description={description} />
+      <Header title="About Web Utilities" description={metadata.description!} />
       <div className="bg-white py-12">
         <div className="flex flex-col gap-8 container max-w-3xl">
           <div className="flex flex-col gap-4">
@@ -28,7 +28,7 @@ const AboutPage = () => {
               <li>Constantly updated with new tools and features</li>
               <li>Free to use with no sign-up required</li>
               <li>Responsive design that works on all devices</li>
-              <li>Privacy-focused: we don't store your data</li>
+              <li>Privacy-focused: we don&apos;t store your data</li>
             </ul>
           </div>
           <div className="flex flex-col gap-4">
