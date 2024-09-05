@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./Navbar";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import Footer from "./Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,11 +24,12 @@ export default function RootLayout({
       <GoogleAnalytics gaId="G-6ZQPQ9EBN3" />
       <body
         className={cn(
-          `grid grid-rows-[min-content_1fr] min-h-screen h-screen bg-background antialiased ${inter.className}`
+          `grid grid-rows-[min-content_1fr_min-content] min-h-screen h-screen bg-background antialiased ${inter.className}`
         )}
       >
         <Navbar />
         <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );
