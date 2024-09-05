@@ -34,7 +34,7 @@ const DesktopNav = ({ links }: NavbarProps) => {
                       <li key={subItem.label}>
                         <Link
                           href={subItem.href}
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent focus:bg-accent"
                         >
                           <div className="text-sm font-medium leading-none">
                             {subItem.label}
