@@ -8,6 +8,9 @@ const toolIcons: ForwardRefExoticComponent<
   Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>
 >[] = [Binary, Palette, Dices, Type];
 
+export const description =
+  "Your one-stop solution for various online tools. Simplify your tasks with our easy-to-use utilities.";
+
 export default function Home() {
   return (
     <>
@@ -19,8 +22,7 @@ export default function Home() {
                 Welcome to Web Utilities
               </h1>
               <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl">
-                Your one-stop solution for various online tools. Simplify your
-                tasks with our easy-to-use utilities.
+                {description}
               </p>
             </div>
             {/* <div className="space-x-4">

@@ -57,7 +57,7 @@ const links: (Link | SubMenu)[] = [
     label: "Tools",
     subItems: tools,
   },
-  // { label: "About", href: "/about" },
+  { label: "About", href: "/about" },
 ];
 
 export interface NavbarProps {

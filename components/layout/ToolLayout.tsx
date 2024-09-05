@@ -3,10 +3,11 @@ import { ReactNode } from "react";
 interface Props {
   title: string;
   description: string;
+  className?: string;
   children: ReactNode;
 }
 
-const ToolLayout = ({ title, description, children }: Props) => {
+const ToolLayout = ({ title, description, className, children }: Props) => {
   return (
     <>
       <header className="w-full py-12 bg-gray-100">
@@ -19,7 +20,9 @@ const ToolLayout = ({ title, description, children }: Props) => {
           </p>
         </div>
       </header>
-      <section className="container py-12 max-w-2xl">{children}</section>
+      <section className={`container py-12 max-w-2xl ${className}`}>
+        {children}
+      </section>
     </>
   );
 };
