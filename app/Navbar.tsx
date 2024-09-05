@@ -66,10 +66,10 @@ export interface NavbarProps {
 
 const Navbar = () => {
   return (
-    <>
+    <div className="shadow-sm border-b">
       <DesktopNav links={links} />
       <MobileNav links={links} />
-    </>
+    </div>
   );
 };
 
