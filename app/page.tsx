@@ -3,6 +3,7 @@ import ToolCard from "@/components/ui/ToolCard";
 import { Binary, Dices, LucideProps, Palette, Type } from "lucide-react";
 import { ForwardRefExoticComponent, RefAttributes } from "react";
 import { tools } from "./Navbar";
+import Link from "next/link";
 
 const toolIcons: ForwardRefExoticComponent<
   Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>
@@ -25,14 +26,21 @@ export default function Home() {
                 {description}
               </p>
             </div>
-            {/* <div className="space-x-4">
-              <Button>Get Started</Button>
-              <Button variant="outline">Learn More</Button>
-            </div> */}
+            <div className="space-x-4">
+              <Link href="/#tools">
+                <Button>Get Started</Button>
+              </Link>
+              <Link href="/about">
+                <Button variant="outline">Learn More</Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100">
+      <section
+        className="w-full py-12 md:py-24 lg:py-32 bg-gray-100"
+        id="tools"
+      >
         <div className="container">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
             Our Tools

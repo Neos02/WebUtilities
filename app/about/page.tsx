@@ -36,7 +36,7 @@ const AboutPage = () => {
             Ready to simplify your workflow? Explore our tools and experience
             the convenience of ToolBox today!
           </p>
-          <Link href="/">
+          <Link href="/#tools">
             <Button>Explore Tools</Button>
           </Link>
         </div>
