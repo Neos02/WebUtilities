@@ -6,22 +6,22 @@
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
-    --card: theme(colors.indigo.50);
+    --card: 226 100% 97%;
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-    --primary: theme(colors.indigo.600);
-    --primary-foreground: theme(colors.white);
+    --primary: 243 75% 59%;
+    --primary-foreground: 0 0% 100%;
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: theme(colors.indigo.100);
-    --accent-foreground: theme(colors.indigo.600);
+    --accent: 226 100% 94%;
+    --accent-foreground: 243 75% 59%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
-    --input: theme(colors.indigo.300);
+    --input: 230 94% 82%;
     --ring: 222.2 84% 4.9%;
     --radius: 0.5rem;
     --chart-1: 12 76% 61%;
