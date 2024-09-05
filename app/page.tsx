@@ -23,10 +23,10 @@ export default function Home() {
                 tasks with our easy-to-use utilities.
               </p>
             </div>
-            <div className="space-x-4">
+            {/* <div className="space-x-4">
               <Button>Get Started</Button>
               <Button variant="outline">Learn More</Button>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
