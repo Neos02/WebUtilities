@@ -43,7 +43,7 @@ export const tools: LinkWithDescription[] = [
   },
 ];
 
-export function getPageMetadata(path: string) {
+export function getPageHeadings(path: string) {
   const { label: title, description } = tools.find(
     (tool) => tool.href === path
   ) ?? { label: "", description: "" };

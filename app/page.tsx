@@ -1,10 +1,10 @@
 import { Button } from "@/components/ui/button";
 import ToolCard from "@/components/ui/ToolCard";
 import { Binary, Dices, LucideProps, Palette, Type } from "lucide-react";
+import { Metadata } from "next";
+import Link from "next/link";
 import { ForwardRefExoticComponent, RefAttributes } from "react";
 import { tools } from "./Navbar";
-import Link from "next/link";
-import { Metadata } from "next";
 
 const toolIcons: ForwardRefExoticComponent<
   Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>
@@ -21,7 +21,8 @@ export default function Home() {
                 Welcome to Web Utilities
               </h1>
               <p className="mx-auto max-w-[700px] text-gray-600 md:text-xl">
-                {metadata.description}
+                Your one-stop solution for various online tools. Simplify your
+                tasks with our easy-to-use utilities.
               </p>
             </div>
             <div className="flex gap-4">
@@ -58,7 +59,7 @@ export default function Home() {
 }
 
 export const metadata: Metadata = {
-  title: "Web Utilities",
+  title: "Web Utilities - Your All-in-One Online Utility Suite",
   description:
-    "Your one-stop solution for various online tools. Simplify your tasks with our easy-to-use utilities.",
+    "Discover Web Utilities, a comprehensive collection of free online tools for everyday tasks. Simplify your workflow with our user-friendly utilities.",
 };

@@ -11,8 +11,8 @@ import {
   useColor,
 } from "react-color-palette";
 import "react-color-palette/css";
-import "./ColorPicker.css";
 import colors from "tailwindcss/colors";
+import "./ColorPicker.css";
 
 const float = (value: number, decimalPlaces: number) => {
   return Math.round(value * 10 ** decimalPlaces) / 10 ** decimalPlaces;
