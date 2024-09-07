@@ -5,6 +5,7 @@ import {
   Info,
   LucideProps,
   Palette,
+  Regex,
   Type,
   Wrench,
 } from "lucide-react";
@@ -16,6 +17,7 @@ export enum Page {
   ColorPicker,
   Home,
   RandomNumberGenerator,
+  RegexTester,
   WordCounter,
 }
 
@@ -85,6 +87,12 @@ export const pageDetails: PageDetails = {
     href: "/number/random",
     icon: createIcon(Dices),
   },
+  [Page.RegexTester]: {
+    label: "Regex Tester",
+    description: "Test and validate your regular expressions with ease",
+    href: "/text/regex",
+    icon: createIcon(Regex),
+  },
   [Page.WordCounter]: {
     label: "Word Counter",
     description:
@@ -98,6 +106,7 @@ export const tools: NavSubItem[] = [
   pageDetails[Page.BaseConverter],
   pageDetails[Page.ColorPicker],
   pageDetails[Page.RandomNumberGenerator],
+  pageDetails[Page.RegexTester],
   pageDetails[Page.WordCounter],
 ];
 

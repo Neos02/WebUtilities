@@ -21,7 +21,7 @@ const ToolCard = ({ tool }: Props) => {
         <CardTitle className="flex justify-between">
           <span className="min-h-12">{tool.label}</span>
           {cloneElement(tool.icon, {
-            class: "min-w-8 max-w-8 min-h-8 max-h-8",
+            className: "min-w-8 max-w-8 min-h-8 max-h-8",
           })}
         </CardTitle>
         <CardDescription>{tool.description}</CardDescription>
