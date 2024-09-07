@@ -3,7 +3,6 @@ import Header from "@/components/ui/Header";
 import { Metadata } from "next";
 import Link from "next/link";
 import { Page, pageDetails } from "../navigation";
-import { baseUrl } from "../sitemap";
 
 const AboutPage = () => {
   return (
@@ -61,7 +60,7 @@ export const metadata: Metadata = {
   openGraph: {
     title,
     description,
-    url: new URL("/about", baseUrl),
+    url: new URL("/about", process.env.NEXT_PUBLIC_URL),
   },
 };
 

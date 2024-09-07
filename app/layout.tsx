@@ -1,11 +1,10 @@
 import { cn } from "@/lib/utils";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Footer from "./Footer";
 import "./globals.css";
 import Navbar from "./Navbar";
-import { GoogleAnalytics } from "@next/third-parties/google";
-import Footer from "./Footer";
-import { baseUrl } from "./sitemap";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     title,
     description,
-    url: baseUrl,
+    url: new URL("/", process.env.NEXT_PUBLIC_URL),
   },
   referrer: "origin-when-cross-origin",
   title,

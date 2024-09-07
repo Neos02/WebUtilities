@@ -5,7 +5,6 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { ForwardRefExoticComponent, RefAttributes } from "react";
 import { Page, pageDetails, tools } from "./navigation";
-import { baseUrl } from "./sitemap";
 
 const toolIcons: ForwardRefExoticComponent<
   Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>
@@ -68,6 +67,6 @@ export const metadata: Metadata = {
   openGraph: {
     title,
     description,
-    url: baseUrl,
+    url: new URL("/", process.env.NEXT_PUBLIC_URL),
   },
 };

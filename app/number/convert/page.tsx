@@ -1,5 +1,4 @@
 import { Page, pageDetails } from "@/app/navigation";
-import { baseUrl } from "@/app/sitemap";
 import ToolLayout from "@/components/layout/ToolLayout";
 import { Metadata } from "next";
 import Converter from "./Converter";
@@ -25,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title,
     description,
-    url: new URL("/color/picker", baseUrl),
+    url: new URL("/color/picker", process.env.NEXT_PUBLIC_URL),
   },
 };
 
