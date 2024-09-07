@@ -10,7 +10,7 @@ const Header = ({ title, description }: Props) => {
         <h1 className="text-primary text-3xl font-bold tracking-tighter md:text-4xl">
           {title}
         </h1>
-        <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl">
+        <p className="mx-auto max-w-[700px] text-gray-600 md:text-xl">
           {description}
         </p>
       </div>

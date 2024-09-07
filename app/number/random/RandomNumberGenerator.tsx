@@ -72,7 +72,7 @@ const RandomNumberGenerator = () => {
         onValueChange={(value) => setNumberType(value as NumberType)}
         className="flex flex-col gap-4"
       >
-        <TabsList className="grid grid-cols-2 w-full">
+        <TabsList className="grid grid-cols-2 w-full bg-card text-gray-600">
           <TabsTrigger value={NumberType.INTEGER}>
             {NumberType.INTEGER}
           </TabsTrigger>
@@ -108,12 +108,12 @@ const RandomNumberGenerator = () => {
 
       <ErrorMessage error={error} />
 
-      <div className="relative p-6 bg-gray-100 rounded-lg text-center">
+      <div className="relative p-6 bg-card rounded-lg text-center">
         <h2 className="text-2xl font-bold">Generated Number</h2>
         {random ? (
           <p className="text-4xl font-mono break-all py-4">{random}</p>
         ) : (
-          <p className="text-gray-500">
+          <p className="text-gray-600">
             Click &quot;Generate Number&quot; to get started!
           </p>
         )}
