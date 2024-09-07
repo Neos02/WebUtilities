@@ -24,7 +24,16 @@ export const metadata: Metadata = {
   openGraph: {
     title,
     description,
-    url: new URL("/color/picker", process.env.NEXT_PUBLIC_URL),
+    url: new URL(
+      pageDetails[Page.RandomNumberGenerator].href,
+      process.env.NEXT_PUBLIC_URL
+    ),
+  },
+  alternates: {
+    canonical: new URL(
+      pageDetails[Page.RandomNumberGenerator].href,
+      process.env.NEXT_PUBLIC_URL
+    ),
   },
 };
 
