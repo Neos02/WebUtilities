@@ -5,6 +5,7 @@ import { Inter } from "next/font/google";
 import Footer from "./Footer";
 import "./globals.css";
 import Navbar from "./Navbar";
+import StructuredData from "./StructuredData";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -35,12 +36,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <GoogleAnalytics gaId="G-6ZQPQ9EBN3" />
       <body
         className={cn(
           `grid grid-rows-[min-content_1fr_min-content] min-h-screen h-screen bg-background antialiased ${inter.className}`
         )}
       >
+        <GoogleAnalytics gaId="G-6ZQPQ9EBN3" />
+        <StructuredData />
         <Navbar />
         <main>{children}</main>
         <Footer />
