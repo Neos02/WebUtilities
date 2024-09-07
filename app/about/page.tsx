@@ -8,8 +8,8 @@ const AboutPage = () => {
   return (
     <div className="bg-gradient-to-b from-blue-50 to-indigo-100">
       <Header
-        title={pageDetails[Page.About].label}
-        description={pageDetails[Page.About].description}
+        title="About Web Utilities"
+        description="Your one-stop solution for various online tools. Simplify your tasks with our easy-to-use utilities"
       />
       <div className="bg-white py-12">
         <div className="flex flex-col gap-8 container max-w-3xl">

@@ -55,9 +55,9 @@ function createIcon(
 
 export const pageDetails: PageDetails = {
   [Page.About]: {
-    label: "About Web Utilities",
+    label: "About",
     description:
-      "Your one-stop solution for various online tools. Simplify your tasks with our easy-to-use utilities",
+      "Our mission is to provide a comprehensive set of online tools that simplify everyday tasks",
     href: "/about",
     icon: createIcon(Info),
   },
@@ -74,9 +74,8 @@ export const pageDetails: PageDetails = {
     icon: createIcon(Palette),
   },
   [Page.Home]: {
-    label: "Welcome to Web Utilities",
-    description:
-      "Your one-stop solution for various online tools. Simplify your tasks with our easy-to-use utilities.",
+    label: "Home",
+    description: "Your one-stop solution for various online tools",
     href: "/",
     icon: createIcon(Home),
   },
