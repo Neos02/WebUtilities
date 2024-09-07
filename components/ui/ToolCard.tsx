@@ -1,5 +1,6 @@
 import { NavSubItem } from "@/app/navigation";
 import Link from "next/link";
+import { cloneElement } from "react";
 import { Button } from "./button";
 import {
   Card,
@@ -19,7 +20,9 @@ const ToolCard = ({ tool }: Props) => {
       <CardHeader className="flex-1 flex flex-col justify-between">
         <CardTitle className="flex justify-between">
           <span className="min-h-12">{tool.label}</span>
-          <tool.icon className="w-8 h-8" />
+          {cloneElement(tool.icon, {
+            class: "min-w-8 max-w-8 min-h-8 max-h-8",
+          })}
         </CardTitle>
         <CardDescription>{tool.description}</CardDescription>
       </CardHeader>
