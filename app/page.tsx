@@ -5,6 +5,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { ForwardRefExoticComponent, RefAttributes } from "react";
 import { tools } from "./Navbar";
+import { baseUrl } from "./sitemap";
 
 const toolIcons: ForwardRefExoticComponent<
   Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>
@@ -58,8 +59,16 @@ export default function Home() {
   );
 }
 
+const title = "Web Utilities - Your All-in-One Online Utility Suite";
+const description =
+  "Discover Web Utilities, a comprehensive collection of free online tools for everyday tasks. Simplify your workflow with our user-friendly utilities.";
+
 export const metadata: Metadata = {
-  title: "Web Utilities - Your All-in-One Online Utility Suite",
-  description:
-    "Discover Web Utilities, a comprehensive collection of free online tools for everyday tasks. Simplify your workflow with our user-friendly utilities.",
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    url: baseUrl,
+  },
 };

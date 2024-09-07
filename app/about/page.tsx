@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import Header from "@/components/ui/Header";
 import { Metadata } from "next";
 import Link from "next/link";
+import { baseUrl } from "../sitemap";
 
 const AboutPage = () => {
   return (
@@ -49,10 +50,18 @@ const AboutPage = () => {
   );
 };
 
+const title = "Web Utilities - About";
+const description =
+  "Learn about Web Utiltities and explore our growing collection of free, easy-to-use online tools.";
+
 export const metadata: Metadata = {
-  title: "Web Utilities - About",
-  description:
-    "Learn about Web Utiltities and explore our growing collection of free, easy-to-use online tools.",
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    url: new URL("/about", baseUrl),
+  },
 };
 
 export default AboutPage;

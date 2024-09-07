@@ -44,11 +44,9 @@ export const tools: LinkWithDescription[] = [
 ];
 
 export function getPageHeadings(path: string) {
-  const { label: title, description } = tools.find(
-    (tool) => tool.href === path
-  ) ?? { label: "", description: "" };
+  const tool = tools.find((tool) => tool.href === path);
 
-  return { title, description };
+  return { heading: tool?.label ?? "", subheading: tool?.description ?? "" };
 }
 
 const links: (Link | SubMenu)[] = [

@@ -5,13 +5,28 @@ import "./globals.css";
 import Navbar from "./Navbar";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Footer from "./Footer";
+import { baseUrl } from "./sitemap";
 
 const inter = Inter({ subsets: ["latin"] });
 
+const title = "Web Utilities";
+const description =
+  "A collection of various different tools that can be used on the web. Select colors, generate random numbers, and more!";
+
 export const metadata: Metadata = {
-  title: "Web Utilities",
-  description:
-    "A collection of various different tools that can be used on the web. Select colors, generate random numbers, and more!",
+  applicationName: "Web Utilities",
+  authors: [{ name: "Nicholas Kennedy", url: "https://neos02.github.io/" }],
+  creator: "Nicholas Kennedy",
+  description,
+  generator: "Next.js",
+  keywords: ["Tools", "Utilities", "Online", "Free", "Productivity"],
+  openGraph: {
+    title,
+    description,
+    url: baseUrl,
+  },
+  referrer: "origin-when-cross-origin",
+  title,
 };
 
 export default function RootLayout({

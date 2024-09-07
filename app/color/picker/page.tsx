@@ -2,21 +2,30 @@ import { getPageHeadings } from "@/app/Navbar";
 import ToolLayout from "@/components/layout/ToolLayout";
 import { Metadata } from "next";
 import ColorPicker from "./ColorPicker";
+import { baseUrl } from "@/app/sitemap";
 
-const { title, description } = getPageHeadings("/color/picker");
+const { heading, subheading } = getPageHeadings("/color/picker");
 
 const ColorPickerPage = () => {
   return (
-    <ToolLayout title={title} description={description}>
+    <ToolLayout title={heading} description={subheading}>
       <ColorPicker />
     </ToolLayout>
   );
 };
 
+const title = "Color Picker - Choose, Convert, and Explore Colors";
+const description =
+  "Find the perfect color for your project. Our color picker tool lets you select, convert between formats, and explore color palettes with ease.";
+
 export const metadata: Metadata = {
-  title: "Color Picker - Choose, Convert, and Explore Colors",
-  description:
-    "Find the perfect color for your project. Our color picker tool lets you select, convert between formats, and explore color palettes with ease.",
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    url: new URL("/color/picker", baseUrl),
+  },
 };
 
 export default ColorPickerPage;

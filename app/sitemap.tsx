@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 
-const baseUrl = "https://webutilities.net";
+export const baseUrl = "https://webutilities.net";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
