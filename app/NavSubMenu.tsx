@@ -31,7 +31,7 @@ const NavSubMenu = ({ submenu, onClick }: Props) => {
     <Collapsible
       open={isOpen}
       onOpenChange={setIsOpen}
-      className="w-full !mx-0"
+      className="flex flex-col gap-1 w-full !mx-0"
     >
       <CollapsibleTrigger asChild>
         <button
@@ -54,7 +54,7 @@ const NavSubMenu = ({ submenu, onClick }: Props) => {
               href={item.href}
               className={cn(
                 "!w-full !justify-start",
-                pathname === item.href && "text-primary !bg-accent",
+                pathname === item.href && "text-primary !bg-accent/50",
                 navigationMenuTriggerStyle()
               )}
               onClick={onClick}

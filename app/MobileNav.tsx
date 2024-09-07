@@ -70,7 +70,7 @@ const MobileNav = ({ links }: NavbarProps) => {
                       onClick={() => setIsOpen(false)}
                       className={cn(
                         "!w-full !justify-start !items-center",
-                        pathname === link.href && "text-primary !bg-accent",
+                        pathname === link.href && "text-primary !bg-accent/50",
                         navigationMenuTriggerStyle()
                       )}
                     >
