@@ -6,20 +6,15 @@ import Header from "../ui/Header";
 interface Props {
   title: string;
   description: string;
-  className?: string;
   children: ReactNode;
 }
 
-const ToolLayout = ({ title, description, className, children }: Props) => {
+const ToolLayout = ({ title, description, children }: Props) => {
   return (
     <div>
       <div className="min-h-[calc(100vh-3.5rem)] pb-12 bg-gradient-to-b from-blue-50 to-indigo-100">
         <Header title={title} description={description} />
-        <section
-          className={`container max-w-2xl p-8 rounded-lg shadow-lg bg-white ${className}`}
-        >
-          {children}
-        </section>
+        {children}
       </div>
       <section className="flex flex-col gap-2 py-8 bg-white text-center">
         <h2 className="text-3xl font-bold tracking-tighter text-primary">

@@ -1,4 +1,5 @@
 import { Page, pageDetails } from "@/app/navigation";
+import ToolContainer from "@/components/layout/ToolContainer";
 import ToolLayout from "@/components/layout/ToolLayout";
 import { Metadata } from "next";
 import RandomNumberGenerator from "./RandomNumberGenerator";
@@ -9,7 +10,9 @@ const NumberRandomPage = () => {
       title={pageDetails[Page.RandomNumberGenerator].label}
       description={pageDetails[Page.RandomNumberGenerator].description}
     >
-      <RandomNumberGenerator />
+      <ToolContainer>
+        <RandomNumberGenerator />
+      </ToolContainer>
     </ToolLayout>
   );
 };

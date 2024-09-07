@@ -1,4 +1,5 @@
 import { Page, pageDetails } from "@/app/navigation";
+import ToolContainer from "@/components/layout/ToolContainer";
 import ToolLayout from "@/components/layout/ToolLayout";
 import { Metadata } from "next";
 import ColorPicker from "./ColorPicker";
@@ -9,7 +10,9 @@ const ColorPickerPage = () => {
       title={pageDetails[Page.ColorPicker].label}
       description={pageDetails[Page.ColorPicker].description}
     >
-      <ColorPicker />
+      <ToolContainer>
+        <ColorPicker />
+      </ToolContainer>
     </ToolLayout>
   );
 };

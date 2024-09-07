@@ -1,4 +1,5 @@
 import { Page, pageDetails } from "@/app/navigation";
+import ToolContainer from "@/components/layout/ToolContainer";
 import ToolLayout from "@/components/layout/ToolLayout";
 import { Metadata } from "next";
 import Converter from "./Converter";
@@ -9,7 +10,9 @@ const NumberConvertPage = () => {
       title={pageDetails[Page.BaseConverter].label}
       description={pageDetails[Page.BaseConverter].description}
     >
-      <Converter />
+      <ToolContainer>
+        <Converter />
+      </ToolContainer>
     </ToolLayout>
   );
 };
