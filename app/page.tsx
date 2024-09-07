@@ -1,14 +1,7 @@
 import { Button } from "@/components/ui/button";
-import ToolCard from "@/components/ui/ToolCard";
-import { Binary, Dices, LucideProps, Palette, Type } from "lucide-react";
 import { Metadata } from "next";
 import Link from "next/link";
-import { ForwardRefExoticComponent, RefAttributes } from "react";
-import { Page, pageDetails, tools } from "./navigation";
-
-const toolIcons: ForwardRefExoticComponent<
-  Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>
->[] = [Binary, Palette, Dices, Type];
+import { Page, pageDetails } from "./navigation";
 
 export default function Home() {
   return (
@@ -40,17 +33,11 @@ export default function Home() {
           <h2 className="text-primary text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
             Our Tools
           </h2>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {/* <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {tools.map((tool, i) => (
-              <ToolCard
-                key={tool.label}
-                title={tool.label}
-                description={tool.description}
-                icon={toolIcons[i]}
-                href={tool.href}
-              />
+              <ToolCard key={tool.label} tool={tool} />
             ))}
-          </div>
+          </div> */}
         </div>
       </section>
     </div>

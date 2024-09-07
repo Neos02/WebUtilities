@@ -15,10 +15,10 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
+import { Menu } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LegacyRef, useEffect, useRef, useState } from "react";
-import { IoMenu } from "react-icons/io5";
+import { useState } from "react";
 import { PiToolboxFill } from "react-icons/pi";
 import { NavbarProps } from "./Navbar";
 import { isNavSubMenu } from "./navigation";
@@ -26,14 +26,7 @@ import NavSubMenu from "./NavSubMenu";
 
 const MobileNav = ({ links }: NavbarProps) => {
   const pathname = usePathname();
-  const triggerRef: LegacyRef<HTMLButtonElement> = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
-
-  useEffect(() => {
-    if (isOpen) {
-      triggerRef?.current?.click();
-    }
-  }, [isOpen, pathname]);
 
   return (
     <div className="flex justify-between container py-2 md:hidden">
@@ -42,9 +35,13 @@ const MobileNav = ({ links }: NavbarProps) => {
       </Link>
 
       <NavigationMenu>
-        <Drawer direction="right" onOpenChange={(open) => setIsOpen(open)}>
-          <DrawerTrigger ref={triggerRef}>
-            <IoMenu size={40} />
+        <Drawer
+          direction="right"
+          open={isOpen}
+          onOpenChange={(open) => setIsOpen(open)}
+        >
+          <DrawerTrigger>
+            <Menu className="text-black w-6 h-6" />
           </DrawerTrigger>
           <DrawerContent>
             <DrawerHeader className="hidden">
@@ -63,19 +60,22 @@ const MobileNav = ({ links }: NavbarProps) => {
                 isNavSubMenu(link) ? (
                   <NavSubMenu
                     key={link.label}
-                    label="Tools"
-                    items={link.items}
+                    submenu={link}
+                    onClick={() => setIsOpen(false)}
                   />
                 ) : (
                   <NavigationMenuItem key={link.label} className="w-full !mx-0">
                     <Link
                       href={link.href}
+                      onClick={() => setIsOpen(false)}
                       className={cn(
-                        "!w-full !justify-start",
+                        "!w-full !justify-start !items-center",
+                        pathname === link.href && "text-primary !bg-accent",
                         navigationMenuTriggerStyle()
                       )}
                     >
-                      {link.label}
+                      <span>{link.icon}</span>
+                      <span>{link.label}</span>
                     </Link>
                   </NavigationMenuItem>
                 )

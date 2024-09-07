@@ -1,3 +1,15 @@
+import {
+  Binary,
+  Dices,
+  Home,
+  Info,
+  LucideProps,
+  Palette,
+  Type,
+  Wrench,
+} from "lucide-react";
+import { ForwardRefExoticComponent, ReactElement, RefAttributes } from "react";
+
 export enum Page {
   About,
   BaseConverter,
@@ -10,15 +22,17 @@ export enum Page {
 export interface NavItem {
   label: string;
   href: string;
+  icon: ReactElement;
 }
 
-export interface NavItemWithDescription extends NavItem {
+export interface NavSubItem extends NavItem {
   description: string;
 }
 
 export interface NavItemSubMenu {
   label: string;
-  items: NavItemWithDescription[];
+  items: NavSubItem[];
+  icon: ReactElement;
 }
 
 export function isNavSubMenu(
@@ -28,8 +42,16 @@ export function isNavSubMenu(
 }
 
 export type PageDetails = {
-  [key in Page]: NavItemWithDescription;
+  [key in Page]: NavSubItem;
 };
+
+function createIcon(
+  Icon: ForwardRefExoticComponent<
+    Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>
+  >
+) {
+  return <Icon className="w-4 h-4 mr-2" />;
+}
 
 export const pageDetails: PageDetails = {
   [Page.About]: {
@@ -37,37 +59,43 @@ export const pageDetails: PageDetails = {
     description:
       "Your one-stop solution for various online tools. Simplify your tasks with our easy-to-use utilities",
     href: "/about",
+    icon: createIcon(Info),
   },
   [Page.BaseConverter]: {
     label: "Base Converter",
     description: "Convert numbers from one base to another",
     href: "/number/convert",
+    icon: createIcon(Binary),
   },
   [Page.ColorPicker]: {
     label: "Color Picker",
     description: "Select colors and convert between formats.",
     href: "/color/picker",
+    icon: createIcon(Palette),
   },
   [Page.Home]: {
     label: "Welcome to Web Utilities",
     description:
       "Your one-stop solution for various online tools. Simplify your tasks with our easy-to-use utilities.",
     href: "/",
+    icon: createIcon(Home),
   },
   [Page.RandomNumberGenerator]: {
     label: "Random Number Generator",
     description: "Generate a random number within a specified range",
     href: "/number/random",
+    icon: createIcon(Dices),
   },
   [Page.WordCounter]: {
     label: "Word Counter",
     description:
       "Count the number of words, characters, and sentences in a text",
     href: "/text/count",
+    icon: createIcon(Type),
   },
 };
 
-export const tools: NavItemWithDescription[] = [
+export const tools: NavSubItem[] = [
   pageDetails[Page.BaseConverter],
   pageDetails[Page.ColorPicker],
   pageDetails[Page.RandomNumberGenerator],
@@ -75,10 +103,11 @@ export const tools: NavItemWithDescription[] = [
 ];
 
 export const navLinks: (NavItem | NavItemSubMenu)[] = [
-  { label: "Home", href: "/" },
+  pageDetails[Page.Home],
   {
     label: "Tools",
     items: tools,
+    icon: createIcon(Wrench),
   },
-  { label: "About", href: "/about" },
+  pageDetails[Page.About],
 ];
