@@ -1,14 +1,15 @@
-import { getPageHeadings } from "@/app/Navbar";
+import { Page, pageDetails } from "@/app/navigation";
+import { baseUrl } from "@/app/sitemap";
 import ToolLayout from "@/components/layout/ToolLayout";
 import { Metadata } from "next";
 import WordCounter from "./WordCounter";
-import { baseUrl } from "@/app/sitemap";
-
-const { heading, subheading } = getPageHeadings("/text/count");
 
 const TextCountPage = () => {
   return (
-    <ToolLayout title={heading} description={subheading}>
+    <ToolLayout
+      title={pageDetails[Page.WordCounter].label}
+      description={pageDetails[Page.WordCounter].description}
+    >
       <WordCounter />
     </ToolLayout>
   );

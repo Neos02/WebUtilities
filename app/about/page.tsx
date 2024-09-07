@@ -2,14 +2,15 @@ import { Button } from "@/components/ui/button";
 import Header from "@/components/ui/Header";
 import { Metadata } from "next";
 import Link from "next/link";
+import { Page, pageDetails } from "../navigation";
 import { baseUrl } from "../sitemap";
 
 const AboutPage = () => {
   return (
     <div className="bg-gradient-to-b from-blue-50 to-indigo-100">
       <Header
-        title="About Web Utilities"
-        description="Your one-stop solution for various online tools. Simplify your tasks with our easy-to-use utilities."
+        title={pageDetails[Page.About].label}
+        description={pageDetails[Page.About].description}
       />
       <div className="bg-white py-12">
         <div className="flex flex-col gap-8 container max-w-3xl">
@@ -50,7 +51,7 @@ const AboutPage = () => {
   );
 };
 
-const title = "Web Utilities - About";
+const title = "About - Web Utilities";
 const description =
   "Learn about Web Utiltities and explore our growing collection of free, easy-to-use online tools.";
 

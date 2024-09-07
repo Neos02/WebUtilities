@@ -9,7 +9,8 @@ import {
 } from "@/components/ui/navigation-menu";
 import Link from "next/link";
 import { PiToolboxFill } from "react-icons/pi";
-import { isSubMenu, NavbarProps } from "./Navbar";
+import { NavbarProps } from "./Navbar";
+import { isNavSubMenu } from "./navigation";
 
 const DesktopNav = ({ links }: NavbarProps) => {
   return (
@@ -25,22 +26,22 @@ const DesktopNav = ({ links }: NavbarProps) => {
 
         <div className="sm:relative flex justify-between items-center gap-2">
           {links.map((link) =>
-            isSubMenu(link) ? (
+            isNavSubMenu(link) ? (
               <NavigationMenuItem key={link.label}>
                 <NavigationMenuTrigger>Tools</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                    {link.subItems.map((subItem) => (
-                      <li key={subItem.label}>
+                    {link.items.map((item) => (
+                      <li key={item.label}>
                         <Link
-                          href={subItem.href}
+                          href={item.href}
                           className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent focus:bg-accent"
                         >
                           <div className="text-sm font-medium leading-none">
-                            {subItem.label}
+                            {item.label}
                           </div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            {subItem.description}
+                            {item.description}
                           </p>
                         </Link>
                       </li>

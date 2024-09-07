@@ -20,7 +20,8 @@ import { usePathname } from "next/navigation";
 import { LegacyRef, useEffect, useRef, useState } from "react";
 import { IoMenu } from "react-icons/io5";
 import { PiToolboxFill } from "react-icons/pi";
-import { isSubMenu, NavbarProps } from "./Navbar";
+import { NavbarProps } from "./Navbar";
+import { isNavSubMenu } from "./navigation";
 import NavSubMenu from "./NavSubMenu";
 
 const MobileNav = ({ links }: NavbarProps) => {
@@ -59,11 +60,11 @@ const MobileNav = ({ links }: NavbarProps) => {
               </NavigationMenuItem>
 
               {links.map((link) =>
-                isSubMenu(link) ? (
+                isNavSubMenu(link) ? (
                   <NavSubMenu
                     key={link.label}
                     label="Tools"
-                    items={link.subItems}
+                    items={link.items}
                   />
                 ) : (
                   <NavigationMenuItem key={link.label} className="w-full !mx-0">

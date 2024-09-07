@@ -4,7 +4,7 @@ import { Binary, Dices, LucideProps, Palette, Type } from "lucide-react";
 import { Metadata } from "next";
 import Link from "next/link";
 import { ForwardRefExoticComponent, RefAttributes } from "react";
-import { tools } from "./Navbar";
+import { Page, pageDetails, tools } from "./navigation";
 import { baseUrl } from "./sitemap";
 
 const toolIcons: ForwardRefExoticComponent<
@@ -19,11 +19,10 @@ export default function Home() {
           <div className="flex flex-col items-center space-y-4 text-center">
             <div className="flex flex-col gap-2">
               <h1 className="text-primary text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
-                Welcome to Web Utilities
+                {pageDetails[Page.Home].label}
               </h1>
               <p className="mx-auto max-w-[700px] text-gray-600 md:text-xl">
-                Your one-stop solution for various online tools. Simplify your
-                tasks with our easy-to-use utilities.
+                {pageDetails[Page.Home].description}
               </p>
             </div>
             <div className="flex gap-4">

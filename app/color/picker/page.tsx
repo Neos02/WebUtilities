@@ -1,14 +1,15 @@
-import { getPageHeadings } from "@/app/Navbar";
+import { Page, pageDetails } from "@/app/navigation";
+import { baseUrl } from "@/app/sitemap";
 import ToolLayout from "@/components/layout/ToolLayout";
 import { Metadata } from "next";
 import ColorPicker from "./ColorPicker";
-import { baseUrl } from "@/app/sitemap";
-
-const { heading, subheading } = getPageHeadings("/color/picker");
 
 const ColorPickerPage = () => {
   return (
-    <ToolLayout title={heading} description={subheading}>
+    <ToolLayout
+      title={pageDetails[Page.ColorPicker].label}
+      description={pageDetails[Page.ColorPicker].description}
+    >
       <ColorPicker />
     </ToolLayout>
   );

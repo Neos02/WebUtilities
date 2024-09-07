@@ -1,14 +1,15 @@
-import { getPageHeadings } from "@/app/Navbar";
+import { Page, pageDetails } from "@/app/navigation";
+import { baseUrl } from "@/app/sitemap";
 import ToolLayout from "@/components/layout/ToolLayout";
 import { Metadata } from "next";
 import RandomNumberGenerator from "./RandomNumberGenerator";
-import { baseUrl } from "@/app/sitemap";
-
-const { heading, subheading } = getPageHeadings("/number/random");
 
 const NumberRandomPage = () => {
   return (
-    <ToolLayout title={heading} description={subheading}>
+    <ToolLayout
+      title={pageDetails[Page.RandomNumberGenerator].label}
+      description={pageDetails[Page.RandomNumberGenerator].description}
+    >
       <RandomNumberGenerator />
     </ToolLayout>
   );

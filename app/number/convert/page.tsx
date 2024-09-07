@@ -1,14 +1,15 @@
-import { getPageHeadings } from "@/app/Navbar";
+import { Page, pageDetails } from "@/app/navigation";
+import { baseUrl } from "@/app/sitemap";
 import ToolLayout from "@/components/layout/ToolLayout";
 import { Metadata } from "next";
 import Converter from "./Converter";
-import { baseUrl } from "@/app/sitemap";
-
-const { heading, subheading } = getPageHeadings("/number/convert");
 
 const NumberConvertPage = () => {
   return (
-    <ToolLayout title={heading} description={subheading}>
+    <ToolLayout
+      title={pageDetails[Page.BaseConverter].label}
+      description={pageDetails[Page.BaseConverter].description}
+    >
       <Converter />
     </ToolLayout>
   );
