@@ -12,7 +12,7 @@ interface Props {
 const ToolLayout = ({ title, description, children }: Props) => {
   return (
     <div>
-      <div className="min-h-[calc(100vh-3.5rem)] pb-12 bg-gradient-to-b from-blue-50 to-indigo-100">
+      <div className="min-h-[calc(100vh-3.5rem)] px-4 pb-12 bg-gradient-to-b from-blue-50 to-indigo-100">
         <Header title={title} description={description} />
         {children}
       </div>
