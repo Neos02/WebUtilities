@@ -19,18 +19,19 @@ const description =
   "Find the perfect color for your project. Our color picker tool lets you select, convert between formats, and explore color palettes with ease.";
 
 export const metadata: Metadata = {
-  title,
-  description,
-  openGraph: {
-    title,
-    description,
-    url: new URL(
+  alternates: {
+    canonical: new URL(
       pageDetails[Page.ColorPicker].href,
       process.env.NEXT_PUBLIC_URL
     ),
   },
-  alternates: {
-    canonical: new URL(
+  title,
+  description,
+  keywords: ["Color", "Picker", "Hex", "RGB", "HSV"],
+  openGraph: {
+    title,
+    description,
+    url: new URL(
       pageDetails[Page.ColorPicker].href,
       process.env.NEXT_PUBLIC_URL
     ),

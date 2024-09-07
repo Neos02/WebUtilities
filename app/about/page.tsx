@@ -55,18 +55,19 @@ const description =
   "Learn about Web Utiltities and explore our growing collection of free, easy-to-use online tools.";
 
 export const metadata: Metadata = {
-  title,
-  description,
-  openGraph: {
-    title,
-    description,
-    url: new URL(pageDetails[Page.About].href, process.env.NEXT_PUBLIC_URL),
-  },
   alternates: {
     canonical: new URL(
       pageDetails[Page.About].href,
       process.env.NEXT_PUBLIC_URL
     ),
+  },
+  title,
+  description,
+  keywords: ["About", "Utilities", "Mission", "Tools", "Free"],
+  openGraph: {
+    title,
+    description,
+    url: new URL(pageDetails[Page.About].href, process.env.NEXT_PUBLIC_URL),
   },
 };
 

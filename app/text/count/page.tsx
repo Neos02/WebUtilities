@@ -19,18 +19,19 @@ const description =
   "Instantly count words, characters, sentences, and more in your text. Our free online word counter tool provides detailed text statistics.";
 
 export const metadata: Metadata = {
-  title,
-  description,
-  openGraph: {
-    title,
-    description,
-    url: new URL(
+  alternates: {
+    canonical: new URL(
       pageDetails[Page.WordCounter].href,
       process.env.NEXT_PUBLIC_URL
     ),
   },
-  alternates: {
-    canonical: new URL(
+  title,
+  description,
+  keywords: ["Word", "Counter", "Characters", "Wordcount", "Sentences"],
+  openGraph: {
+    title,
+    description,
+    url: new URL(
       pageDetails[Page.WordCounter].href,
       process.env.NEXT_PUBLIC_URL
     ),

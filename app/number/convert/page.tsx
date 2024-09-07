@@ -19,18 +19,19 @@ const description =
   "Easily convert numbers between binary, decimal, hexadecimal, and more with our free online base converter tool. Fast, accurate, and user-friendly.";
 
 export const metadata: Metadata = {
-  title,
-  description,
-  openGraph: {
-    title,
-    description,
-    url: new URL(
+  alternates: {
+    canonical: new URL(
       pageDetails[Page.BaseConverter].href,
       process.env.NEXT_PUBLIC_URL
     ),
   },
-  alternates: {
-    canonical: new URL(
+  title,
+  description,
+  keywords: ["Base", "Convert", "Binary", "Decimal", "Hexadecimal"],
+  openGraph: {
+    title,
+    description,
+    url: new URL(
       pageDetails[Page.BaseConverter].href,
       process.env.NEXT_PUBLIC_URL
     ),

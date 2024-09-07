@@ -62,17 +62,17 @@ const description =
   "Discover Web Utilities, a comprehensive collection of free online tools for everyday tasks. Simplify your workflow with our user-friendly utilities.";
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: new URL(
+      pageDetails[Page.Home].href,
+      process.env.NEXT_PUBLIC_URL
+    ),
+  },
   title,
   description,
   openGraph: {
     title,
     description,
     url: new URL(pageDetails[Page.Home].href, process.env.NEXT_PUBLIC_URL),
-  },
-  alternates: {
-    canonical: new URL(
-      pageDetails[Page.Home].href,
-      process.env.NEXT_PUBLIC_URL
-    ),
   },
 };

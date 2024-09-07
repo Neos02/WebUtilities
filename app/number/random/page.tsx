@@ -19,18 +19,19 @@ const description =
   "Generate random numbers for games, statistics, or any other purpose. Customize ranges with our free online tool.";
 
 export const metadata: Metadata = {
-  title,
-  description,
-  openGraph: {
-    title,
-    description,
-    url: new URL(
+  alternates: {
+    canonical: new URL(
       pageDetails[Page.RandomNumberGenerator].href,
       process.env.NEXT_PUBLIC_URL
     ),
   },
-  alternates: {
-    canonical: new URL(
+  title,
+  description,
+  keywords: ["Random", "Number", "Generator", "Integer", "Decimal"],
+  openGraph: {
+    title,
+    description,
+    url: new URL(
       pageDetails[Page.RandomNumberGenerator].href,
       process.env.NEXT_PUBLIC_URL
     ),
