@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Web Utilities - Your All-in-One Online Utility Suite
+
+Web Utilities is a collection of free online tools designed to simplify your everyday tasks. Built with Next.js, React, and Tailwind CSS, Web Utilities offers a user-friendly interface and a growing number of utilities to boost your productivity.
+
+## Features
+
+- **Base Converter**: Easily convert numbers between binary, decimal, hexadecimal, and more with our free online base converter tool. Fast, accurate, and user-friendly.
+- **Color Picker**: Find the perfect color for your project. Our color picker tool lets you select, convert between formats, and explore color palettes with ease.
+- **Random Number Generator**: Generate random numbers for games, statistics, or any other purpose. Customize ranges with our free online tool.
+- **Word Counter**: Instantly count words, characters, sentences, and more in your text. Our free online word counter tool provides detailed text statistics.
 
 ## Getting Started
 
-First, run the development server:
+[Visit our website](https://webutilities.net) to try out or tools! Alternatively, run it yourself by following the instructions below.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Prerequisites
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Node.js (v14 or later)
+- npm or yarn
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Installation
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Clone the repository:
 
-## Learn More
+   ```bash
+   git clone git@github.com:Neos02/WebUtilities.git
+   cd WebUtilities
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+2. Install dependencies:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+3. Run the development server:
 
-## Deploy on Vercel
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. Open [https://localhost:3000](https://localhost:3000) in your browser to see the application.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Project Structure
+
+- `app/`: Contains the main application code and pages.
+- `components/`: Global React components.
+- `types/`: Type declarations for javascript libraries.
+
+## Technologies Used
+
+- [Next.js](https://nextjs.org/): React framework for server-side rendering and static site generation.
+- [React](https://reactjs.org/): JavaScript library for building user interfaces.
+- [Tailwind CSS](https://tailwindcss.com/): Utility-first CSS framework.
+- [shadcn/ui](https://ui.shadcn.com/): Beautifully designed components built with Radix UI and Tailwind CSS.
+- [Lucide Icons](https://lucide.dev/): Beautiful & consistent icon toolkit.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- Thanks to all the open-source projects that made this possible.
+- Special thanks to our users for their valuable feedback and support.
+
+## Contact
+
+For any questions or suggestions, please open an issue on GitHub.
+
+---
+
+Made with ❤️ by the Web Utilities Team
