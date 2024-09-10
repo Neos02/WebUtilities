@@ -11,7 +11,7 @@ Web Utilities is a collection of free online tools designed to simplify your eve
 
 ## Getting Started
 
-[Visit our website](https://webutilities.net) to try out or tools! Alternatively, run it yourself by following the instructions below.
+[Visit our website](https://webutilities.net) to try out our tools! Alternatively, run it yourself by following the instructions below.
 
 ### Prerequisites
 
