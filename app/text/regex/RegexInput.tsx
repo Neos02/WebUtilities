@@ -1,15 +1,15 @@
 import { Input, inputStyle } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
-import { useEffect } from "react";
+import { ChangeEvent, useEffect } from "react";
 import { colorizeAll } from "regex-colorizer";
 
-interface Props {
+interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   pattern: string;
   flags: string;
-  onChange: (value: string) => void;
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
-const RegexInput = ({ pattern, flags, onChange }: Props) => {
+const RegexInput = ({ pattern, flags, onChange, ...props }: Props) => {
   useEffect(() => {
     colorizeAll("regex");
   }, [pattern]);
@@ -24,7 +24,8 @@ const RegexInput = ({ pattern, flags, onChange }: Props) => {
       <Input
         className="absolute top-0 left-0 pl-[calc(.75rem+1ch)] text-transparent caret-black bg-transparent font-mono font-bold border-0"
         value={pattern}
-        onChange={(e) => onChange(e.target.value)}
+        onChange={onChange}
+        {...props}
       />
     </div>
   );
