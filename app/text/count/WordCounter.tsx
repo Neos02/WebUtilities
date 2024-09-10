@@ -25,29 +25,6 @@ const WordCounter = () => {
           className="border-none min-h-80 p-4 resize-none"
         />
       </ToolContainer>
-      {/* <div className="flex flex-col gap-2 whitespace-nowrap md:w-48">
-        <h1 className="font-bold">Results</h1>
-        {results.map((result) => (
-          <Badge key={result.label} className="flex justify-between px-2 py-1">
-            <span>{result.label}</span>
-            <span>{result.countFunction()}</span>
-          </Badge>
-        ))}
-        <Separator />
-        <h1 className="font-bold">Top Words</h1>
-        {text ? (
-          Object.entries(mostCommonwords(text)).map(([word, count]) => (
-            <Badge key={word} className="flex justify-between px-2 py-1">
-              <span>{word}</span>
-              <span>{count}</span>
-            </Badge>
-          ))
-        ) : (
-          <p className="pt-2 text-center text-sm">
-            Start typing to get started
-          </p>
-        )}
-      </div> */}
       <div className="grid gap-4 md:grid-cols-2">
         {results.map((result) => (
           <ToolContainer
