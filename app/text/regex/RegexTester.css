@@ -36,7 +36,3 @@
 .regex u {
   @apply font-bold not-italic no-underline;
 }
-
-.match {
-  background: rgba(79, 70, 229, 0.2);
-}
