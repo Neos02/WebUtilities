@@ -14,15 +14,11 @@ const RegexInput = ({ pattern, flags, onChange, ...props }: Props) => {
     colorizeAll("regex");
   }, [pattern]);
 
-  const formatRegex = (regex: string): string => {
-    return `/${regex}/${flags}`;
-  };
-
   return (
     <div className="relative">
-      <code className={cn(inputStyle(), "regex")}>{formatRegex(pattern)}</code>
+      <code className={cn(inputStyle(), "regex")}>{pattern}</code>
       <Input
-        className="absolute top-0 left-0 pl-[calc(.75rem+1ch)] text-transparent caret-black bg-transparent font-mono font-bold border-0"
+        className="absolute top-0 left-0 text-transparent caret-black bg-transparent font-mono font-bold border-0"
         value={pattern}
         onChange={onChange}
         {...props}
