@@ -31,9 +31,9 @@ const RegexTestInput = ({
     let re, match;
 
     try {
-      re = new RegExp(pattern, flags);
+      if (pattern.length && flags.length) {
+        re = new RegExp(pattern, flags);
 
-      if (pattern.length) {
         while ((match = re.exec(value)) != null) {
           matches.push(match);
         }
