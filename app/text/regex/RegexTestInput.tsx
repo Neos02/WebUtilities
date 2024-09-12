@@ -74,7 +74,7 @@ const RegexTestInput = ({
     if (matchRanges[0].start !== 0) {
       ranges.unshift({
         start: 0,
-        end: matchRanges[0].start - 1,
+        end: matchRanges[0].start,
         isMatch: false,
       });
     }
@@ -87,6 +87,7 @@ const RegexTestInput = ({
         isMatch: false,
       });
     }
+
     setResults(ranges);
   }, [pattern, flags, value, setResults]);
 
@@ -109,7 +110,7 @@ const RegexTestInput = ({
           ))}
         </div>
         <Textarea
-          className="h-auto resize-none bg-transparent text-transparent caret-black col-start-1 col-end-2 row-start-1 row-end-2"
+          className="h-auto resize-none text-transparent bg-transparent caret-black col-start-1 col-end-2 row-start-1 row-end-2"
           value={value}
           {...props}
         />
