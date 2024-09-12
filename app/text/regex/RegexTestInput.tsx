@@ -32,13 +32,14 @@ const RegexTestInput = ({
 
     try {
       re = new RegExp(pattern, flags);
-    } catch (err) {
-      console.error("Error in regex");
-      return;
-    }
 
-    while ((match = re.exec(value)) != null) {
-      matches.push(match);
+      if (pattern.length) {
+        while ((match = re.exec(value)) != null) {
+          matches.push(match);
+        }
+      }
+    } catch (err) {
+      setResults([]);
     }
 
     const matchRanges: Result[] = [];
