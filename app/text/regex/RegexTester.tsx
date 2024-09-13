@@ -9,6 +9,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Label } from "@/components/ui/label";
+import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 import RegexInput from "./RegexInput";
 import RegexTestInput from "./RegexTestInput";
@@ -34,6 +35,13 @@ const RegexTester = () => {
     "Edit the expression and text to see matches."
   );
 
+  const formatFlags = () => {
+    return flags
+      .filter((flag) => flag.isActive)
+      .map((flag) => flag.value)
+      .join("");
+  };
+
   return (
     <ToolContainer className="flex flex-col gap-4">
       <div className="flex gap-4">
@@ -49,11 +57,16 @@ const RegexTester = () => {
           <Label htmlFor="flags">Flags</Label>
           <DropdownMenu>
             <DropdownMenuTrigger id="flags" asChild>
-              <Button variant="outline" className="text-foreground">
-                {flags
-                  .filter((flag) => flag.isActive)
-                  .map((flag) => flag.value)
-                  .join("")}
+              <Button
+                variant="outline"
+                className="flex justify-between items-center text-foreground"
+              >
+                {formatFlags() ? (
+                  <span>{formatFlags()}</span>
+                ) : (
+                  <span className="text-muted-foreground">Select</span>
+                )}
+                <ChevronDown className="w-4 h-4" />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent>
@@ -91,10 +104,7 @@ const RegexTester = () => {
           onChange={(e) => setText(e.target.value)}
           placeholder="Start typing or paste your text here"
           pattern={pattern}
-          flags={flags
-            .filter((flag) => flag.isActive)
-            .map((flag) => flag.value)
-            .join("")}
+          flags={formatFlags()}
         />
       </div>
     </ToolContainer>
