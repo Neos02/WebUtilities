@@ -100,7 +100,7 @@ const RegexTestInput = ({
         <div
           className={cn(
             inputStyle(),
-            "col-start-1 col-end-2 row-start-1 row-end-2 block w-full h-auto whitespace-pre-wrap"
+            "col-start-1 col-end-2 row-start-1 row-end-2 block w-full h-auto font-mono whitespace-pre-wrap"
           )}
         >
           {results.map((result) => (
@@ -113,7 +113,7 @@ const RegexTestInput = ({
           ))}
         </div>
         <Textarea
-          className="h-auto resize-none text-transparent bg-transparent caret-black col-start-1 col-end-2 row-start-1 row-end-2"
+          className="h-auto resize-none text-transparent bg-transparent font-mono caret-black col-start-1 col-end-2 row-start-1 row-end-2"
           value={value}
           {...props}
         />
