@@ -35,6 +35,8 @@ const RegexTestInput = ({
         re = new RegExp(pattern, flags);
 
         while ((match = re.exec(value)) != null) {
+          if (!match[0].length) break;
+
           matchRanges.push({
             start: match.index,
             end: match.index + match[0].length,
