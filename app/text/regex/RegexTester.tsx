@@ -33,6 +33,7 @@ const RegexTester = () => {
             id="flags"
             value={flags}
             onChange={(e) => setFlags(e.target.value)}
+            autoComplete="false"
           />
         </div>
       </div>
