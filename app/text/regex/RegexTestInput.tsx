@@ -28,20 +28,26 @@ const RegexTestInput = ({
 
   useEffect(() => {
     const matchRanges: Result[] = [];
-    let re, match;
+    let re, match, prevMatch;
 
     try {
-      if (pattern.length && flags.length) {
+      if (pattern.length) {
         re = new RegExp(pattern, flags);
 
         while ((match = re.exec(value)) != null) {
-          if (!match[0].length) break;
+          if (
+            !match[0].length ||
+            (prevMatch && prevMatch.index === match.index)
+          )
+            break;
 
           matchRanges.push({
             start: match.index,
             end: match.index + match[0].length,
             isMatch: true,
           });
+
+          prevMatch = match;
         }
       }
     } catch (err) {

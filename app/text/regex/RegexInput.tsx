@@ -5,11 +5,10 @@ import { colorizeAll } from "regex-colorizer";
 
 interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   pattern: string;
-  flags: string;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
-const RegexInput = ({ pattern, flags, onChange, ...props }: Props) => {
+const RegexInput = ({ pattern, onChange, ...props }: Props) => {
   useEffect(() => {
     colorizeAll("regex");
   }, [pattern]);
