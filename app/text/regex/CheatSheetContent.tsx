@@ -62,10 +62,10 @@ const CheatSheetContent = () => {
           <h1 className="p-1 rounded-sm bg-accent text-primary font-bold text-center">
             {cheatSheatItem.label}
           </h1>
-          <div className="grid grid-cols-[max-content_auto] justify-between gap-1">
+          <div className="grid grid-cols-2 justify-between gap-1">
             {cheatSheatItem.items.map((item) => (
               <Fragment key={item.label}>
-                <span className="inline-block w-max py-0.5 px-1 rounded-sm bg-accent font-mono">
+                <span className="inline-block w-max h-max py-0.5 px-1 rounded-sm bg-accent font-mono">
                   {item.label}
                 </span>
                 <span>{item.description}</span>
