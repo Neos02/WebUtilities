@@ -62,13 +62,13 @@ const cheatSheatItems: { label: string; items: CheatSheetItem[] }[] = [
 
 const CheatSheet = () => {
   return (
-    <ToolContainer>
+    <ToolContainer className="py-2">
       <Collapsible>
-        <CollapsibleTrigger className="flex justify-between items-center w-full">
+        <CollapsibleTrigger className="flex justify-between items-center w-full py-4">
           <h1 className="font-bold font-lg">Cheatsheet</h1>
           <ChevronDown className="w-5 h-5" />
         </CollapsibleTrigger>
-        <CollapsibleContent className="flex flex-col gap-4 mt-4">
+        <CollapsibleContent className="flex flex-col gap-4">
           {cheatSheatItems.map((cheatSheatItem) => (
             <div key={cheatSheatItem.label} className="flex flex-col gap-2">
               <h1 className="p-1 rounded-sm bg-accent text-primary font-bold text-center">
