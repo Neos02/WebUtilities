@@ -1,5 +1,6 @@
 import { Page, pageDetails } from "@/app/navigation";
 import ToolLayout from "@/components/layout/ToolLayout";
+import CheatSheet from "./CheatSheet";
 import RegexTester from "./RegexTester";
 
 const page = () => {
@@ -8,7 +9,10 @@ const page = () => {
       title={pageDetails[Page.RegexTester].label}
       description={pageDetails[Page.RegexTester].description}
     >
-      <RegexTester />
+      <div className="flex flex-col gap-4">
+        <RegexTester />
+        <CheatSheet />
+      </div>
     </ToolLayout>
   );
 };

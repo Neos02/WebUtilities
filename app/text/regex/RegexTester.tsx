@@ -86,7 +86,7 @@ const RegexTester = () => {
                 >
                   <div className="flex-1 flex justify-between items-center gap-4">
                     <span>{flag.label}</span>
-                    <span className="py-0.5 px-1 rounded-sm bg-primary/10 font-mono">
+                    <span className="py-0.5 px-1 rounded-sm bg-accent font-mono">
                       {flag.value}
                     </span>
                   </div>
