@@ -6,7 +6,9 @@ Web Utilities is a collection of free online tools designed to simplify your eve
 
 - **Base Converter**: Easily convert numbers between binary, decimal, hexadecimal, and more with our free online base converter tool. Fast, accurate, and user-friendly.
 - **Color Picker**: Find the perfect color for your project. Our color picker tool lets you select, convert between formats, and explore color palettes with ease.
+- **File Converter**: Convert your files between different formats quickly and easily. Support for JPG, PNG, and WEBP, with more coming soon!
 - **Random Number Generator**: Generate random numbers for games, statistics, or any other purpose. Customize ranges with our free online tool.
+- **Regex Tester**: Test and validate your regular expressions with our easy-to-use Regex Tester. Real-time matching and a handy cheatsheet included!
 - **Word Counter**: Instantly count words, characters, sentences, and more in your text. Our free online word counter tool provides detailed text statistics.
 
 ## Getting Started
