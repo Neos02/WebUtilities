@@ -3,6 +3,13 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+} from "@/components/ui/select";
+import { SelectValue } from "@radix-ui/react-select";
 import { extension } from "mime-types";
 import { useRef, useState } from "react";
 
@@ -57,17 +64,37 @@ const ImageConverter = () => {
   };
 
   return (
-    <div>
+    <div className="flex flex-col gap-4">
       <canvas ref={canvasRef} hidden />
 
-      <div className="flex flex-col gap-2">
-        <Label htmlFor="imageInput">Image</Label>
-        <Input
-          id="imageInput"
-          type="file"
-          accept={Object.values(ImageType).join(",")}
-          onChange={(e) => setInput(e.target.files?.[0])}
-        />
+      <div className="flex gap-4">
+        <div className="flex-1 flex flex-col gap-2">
+          <Label htmlFor="imageInput">Image</Label>
+          <Input
+            id="imageInput"
+            type="file"
+            accept={Object.values(ImageType).join(",")}
+            onChange={(e) => setInput(e.target.files?.[0])}
+          />
+        </div>
+        <div className="flex flex-col gap-2 min-w-32">
+          <Label htmlFor="imageInput">Convert To</Label>
+          <Select
+            value={typeTo}
+            onValueChange={(value) => setTypeTo(value as ImageType)}
+          >
+            <SelectTrigger id="imageInput">
+              <SelectValue placeholder="Convert To" />
+            </SelectTrigger>
+            <SelectContent>
+              {Object.entries(ImageType).map(([type, mime]) => (
+                <SelectItem key={type} value={mime}>
+                  {type}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
       </div>
 
       <Button onClick={convert}>Convert</Button>
