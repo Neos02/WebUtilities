@@ -76,7 +76,7 @@ const ImageConverter = () => {
       <div className="flex flex-col gap-4">
         <canvas ref={canvasRef} hidden />
 
-        <div className="flex gap-4">
+        <div className="flex flex-col md:flex-row gap-4">
           <div className="flex-1 flex flex-col gap-2">
             <Label htmlFor="imageInput">Image</Label>
             <Input
