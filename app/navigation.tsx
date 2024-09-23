@@ -1,6 +1,7 @@
 import {
   Binary,
   Dices,
+  FolderSync,
   Home,
   Info,
   LucideProps,
@@ -15,6 +16,7 @@ export enum Page {
   About,
   BaseConverter,
   ColorPicker,
+  FileConverter,
   Home,
   RandomNumberGenerator,
   RegexTester,
@@ -75,6 +77,13 @@ export const pageDetails: PageDetails = {
     href: "/color/picker",
     icon: createIcon(Palette),
   },
+  [Page.FileConverter]: {
+    label: "File Converter",
+    description:
+      "Convert your files between different formats quickly and easily.",
+    href: "/file/convert",
+    icon: createIcon(FolderSync),
+  },
   [Page.Home]: {
     label: "Home",
     description: "Your one-stop solution for various online tools",
@@ -105,6 +114,7 @@ export const pageDetails: PageDetails = {
 export const tools: NavSubItem[] = [
   pageDetails[Page.BaseConverter],
   pageDetails[Page.ColorPicker],
+  pageDetails[Page.FileConverter],
   pageDetails[Page.RandomNumberGenerator],
   pageDetails[Page.RegexTester],
   pageDetails[Page.WordCounter],
