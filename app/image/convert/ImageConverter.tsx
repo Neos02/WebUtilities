@@ -92,7 +92,7 @@ const ImageConverter = () => {
               value={typeTo}
               onValueChange={(value) => setTypeTo(value as ImageType)}
             >
-              <SelectTrigger id="imageInput">
+              <SelectTrigger id="imageInput" aria-label="Convert to">
                 <SelectValue placeholder="Convert To" />
               </SelectTrigger>
               <SelectContent>

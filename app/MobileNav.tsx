@@ -30,7 +30,7 @@ const MobileNav = ({ links }: NavbarProps) => {
 
   return (
     <div className="flex justify-between container py-2 md:hidden">
-      <Link href="/" className={navigationMenuTriggerStyle()}>
+      <Link href="/" className={navigationMenuTriggerStyle()} aria-label="Home">
         <PiToolboxFill size={18} />
       </Link>
 
@@ -40,7 +40,7 @@ const MobileNav = ({ links }: NavbarProps) => {
           open={isOpen}
           onOpenChange={(open) => setIsOpen(open)}
         >
-          <DrawerTrigger>
+          <DrawerTrigger aria-label="Menu">
             <Menu className="text-black w-6 h-6" />
           </DrawerTrigger>
           <DrawerContent>

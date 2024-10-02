@@ -24,7 +24,9 @@ const ToolCard = ({ tool }: Props) => {
             className: "min-w-8 max-w-8 min-h-8 max-h-8",
           })}
         </CardTitle>
-        <CardDescription>{tool.description}</CardDescription>
+        <CardDescription className="text-foreground/60">
+          {tool.description}
+        </CardDescription>
       </CardHeader>
       <CardContent>
         <Link href={tool.href}>

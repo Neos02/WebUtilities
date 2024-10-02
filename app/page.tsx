@@ -24,7 +24,7 @@ export default function Home() {
                 <Button>Get Started</Button>
               </Link>
               <Link href="/about">
-                <Button variant="outline">Learn More</Button>
+                <Button variant="outline">Our Mission</Button>
               </Link>
             </div>
           </div>

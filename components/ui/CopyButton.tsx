@@ -36,6 +36,7 @@ const CopyButton = ({
         handleCopy();
         onClick(e);
       }}
+      aria-label="Copy"
       {...props}
     >
       {isCopied ? <FiCheck /> : <FiClipboard />}
